@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
-import { Pool } from "pg";
-
+import pkg from 'pg';
+const { Pool } = pkg;
 
 dotenv.config();
 
@@ -14,8 +14,21 @@ const pool  = new Pool({
     host: process.env.DATABASE_HOST,
     database: process.env.DATABASE,
     password: process.env.DATABASE_PASSWORD,
-    port: process.env.DATABASE_PORT
+    port: process.env.DATABASE_PORT,
+    schema: 'public'
 });
+
+app.get('/users', async (req, res) => {
+    try {
+      const { rows } = await pool.query('SELECT * FROM users');
+      res.json(rows);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error fetching users');
+    }
+  });
+
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
