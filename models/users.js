@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
-const sequelize = 'sequelize'; // Import the Sequelize instance created earlier
+import sequelize from './db'; // Import the Sequelize instance created earlier
+import bcrypt from 'bcryptjs';
 
 class Users extends Model {}
 Users.init({
@@ -20,12 +21,25 @@ Users.init({
   password: {
     type: DataTypes.ARRAY,
     allowNull: false,
+    set(value) {
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(value, salt);
+      this.setDataValue('password', hashedPassword);
+    }
   },
   role: {
     type: DataTypes.STRING,
-    allowNull: false,
+    references: {
+      model: Role, // reference the Role model
+      key: 'value' // reference the value column in the Role table
+    }
   }
 }, {
   sequelize, // Pass the Sequelize instance
   modelName: 'users', // Set the table name
 });
+
+Users.belongsTo(Role, { foreignKey: "role" });
+Role.hasMany(Users, { foreignKey: "role" });
+
+export default Users;

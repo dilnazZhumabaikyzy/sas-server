@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from 'dotenv';
-import { Sequelize } from 'sequelize';
+
 import bodyParser from 'body-parser';
-// const { Sequelize } = sequelize;
+import sequelize from "./models/db.js";
 
 dotenv.config();
 
@@ -14,11 +14,6 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USER, process.env.DATABASE_PASSWORD, {
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  dialect: 'postgres',
-});
 
 
 sequelize.authenticate()
