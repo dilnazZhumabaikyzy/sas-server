@@ -1,9 +1,9 @@
 import { Model, DataTypes } from "sequelize";
-const sequelize = "sequelize";
+import sequelize from './db';
 import { Users } from "./user.js";
 import { Lesson } from "./lesson.js";
 
-class Teachers extends Users {}
+class Teachers extends Model {}
 Teachers.init(
   {
     teacher_id: {

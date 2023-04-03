@@ -27,6 +27,7 @@ const config = {
     dialect: 'postgres',
     port: process.env.DATABASE_PORT,
   },
+  secret: "SECRET_KEY_RANDOM"
 };
 
 export default config;

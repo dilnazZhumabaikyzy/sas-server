@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
-const sequelize = "sequelize";
+import sequelize from './db';
 import { Users } from "./user.js";
 
-class Students extends Users {}
+class Students extends Model {}
 Students.init(
   {
     student_id: {
@@ -33,5 +33,7 @@ Students.init(
   }
 );
 
-Students.belongsTo(Users, { foreignKey: "student_id" });
-Users.hasOne(Students, { foreignKey: "student_id" });
+Students.belongsTo(Users, { foreignKey: "user_id" });
+Users.hasOne(Students, { foreignKey: "user_id" });
+
+export default Students
