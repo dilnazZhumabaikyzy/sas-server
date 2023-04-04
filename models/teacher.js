@@ -12,7 +12,7 @@ Teachers.init(
       primaryKey: true,
       references: {
         model: Users,
-        key: "user_id",
+        key: "userId",
       },
     },
     lesson_id: {
@@ -27,6 +27,8 @@ Teachers.init(
   {
     sequelize,
     modelName: "teachers",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 

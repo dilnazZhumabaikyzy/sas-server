@@ -13,6 +13,8 @@ Role.init(
   {
     sequelize,
     modelName: "role",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 

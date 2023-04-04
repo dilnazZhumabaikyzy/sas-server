@@ -4,13 +4,13 @@ import Users from "./users.js";
 class Token extends Model {}
 Token.init(
   { 
-    user_id: {
+    userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     references: {
       model: Users,
-      key: "user_id",
+      key: "userId",
     },
     refreshToken:{
     type: DataTypes.STRING, 
@@ -21,6 +21,8 @@ Token.init(
   {
     sequelize,
     modelName: "token",
+    timestamps: false, // Set timestamps option to false
+    underscored: true, // Set underscored option to true
   }
 );
 

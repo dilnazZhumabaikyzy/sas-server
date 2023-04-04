@@ -17,6 +17,8 @@ Courses.init(
   {
     sequelize,
     modelName: "courses",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 export default Courses;

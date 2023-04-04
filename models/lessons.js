@@ -53,6 +53,8 @@ Lessons.init(
   {
     sequelize,
     modelName: "lessons",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 

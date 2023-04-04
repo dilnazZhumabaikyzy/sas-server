@@ -3,15 +3,15 @@ const bcrypt = require('bcryptjs');
 const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('users', {
-      user_id: {
+      userId: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         type: Sequelize.STRING
       },
       password: {

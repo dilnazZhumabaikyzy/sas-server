@@ -5,22 +5,24 @@ import Users from "./users.js";
 class Admins extends Model {}
 Admins.init(
   {
-    admin_id: {
+    adminId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       references: {
         model: Users,
-        key: "user_id",
+        key: "userId",
       },
     },
   },
   {
     sequelize,
     modelName: "admins",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 
-Admins.belongsTo(Users, { foreignKey: "user_id" });
-Users.hasOne(Admins, { foreignKey: "user_id" });
+Admins.belongsTo(Users, { foreignKey: "userId" });
+Users.hasOne(Admins, { foreignKey: "userId" });
 export default Admins;

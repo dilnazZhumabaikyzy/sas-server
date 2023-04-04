@@ -12,12 +12,12 @@ class userController{
                 return next(ApiError.BadRequest(('Validation Error'), errors.array()))
             }
             //registration
-            const {user_id, password,first_name, last_name, role_id} = req.body;
+            const {userId, password,firstName, lastName, role_id} = req.body;
             let userData = null;
             if(role.toLowerCase() == 'student'){
                 const {major} = req.body;
                 const lesson_ids = generateRandomLessons();
-                userData = await userService.registrationStudent(user_id, password,first_name, last_name,major,lesson_ids);
+                userData = await userService.registrationStudent(userId, password,firstName, lastName,major,lesson_ids);
             }else{
                 return next(ApiError.BadRequest(('Role is not student'), errors.array()))
             }            

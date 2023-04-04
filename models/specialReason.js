@@ -39,6 +39,8 @@ SpecialReasons.init(
   {
     sequelize,
     modelName: "specialReasons",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 export default SpecialReasons;

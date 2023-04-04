@@ -7,7 +7,7 @@ const migration = {
         primaryKey: true,
         references: {
           model: "users",
-          key: "user_id",
+          key: "userId",
         },
       },
       authorized_id: {

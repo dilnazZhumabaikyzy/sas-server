@@ -5,7 +5,7 @@ import Students from "./student.js";
 class Attendances extends Model {}
 Attendances.init(
   {
-    attendance_id: {
+    attendanceId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -31,6 +31,9 @@ Attendances.init(
   {
     sequelize,
     modelName: "attendances",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
+    
   }
 );
 export default Attendances;

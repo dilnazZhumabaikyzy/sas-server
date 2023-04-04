@@ -11,7 +11,7 @@ Students.init(
       primaryKey: true,
       references: {
         model: Users,
-        key: "user_id",
+        key: "userId",
       },
     },
     authorized_id: {
@@ -26,10 +26,12 @@ Students.init(
   {
     sequelize,
     modelName: "students",
+    timestamps: false, // Set timestamps option to false
+    underscored: true,
   }
 );
 
-Students.belongsTo(Users, { foreignKey: "user_id" });
-Users.hasOne(Students, { foreignKey: "user_id" });
+Students.belongsTo(Users, { foreignKey: "userId" });
+Users.hasOne(Students, { foreignKey: "userId" });
 
 export default Students

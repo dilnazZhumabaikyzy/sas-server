@@ -33,6 +33,8 @@ Users.init({
 }, {
   sequelize, // Pass the Sequelize instance
   modelName: 'enrollment', // Set the table name
+  timestamps: false, // Set timestamps option to false
+  underscored: true,
 });
 
 Enrollment.belongsTo(Lessons, { foreignKey: "lesson_id" });

@@ -1,13 +1,13 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("admins", {
-      admin_id: {
+      adminId: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
           model: "users",
-          key: "user_id",
+          key: "userId",
         },
       },
     });

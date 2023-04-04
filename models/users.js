@@ -6,15 +6,15 @@ import Role from './role.js';
 class Users extends Model {}
 Users.init({
   // Define the columns of the User table
-  user_id: {
+  userId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
   },
-  first_name: {
+  firstName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  last_name: {
+  lastName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
