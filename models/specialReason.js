@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-const sequelize = "sequelize";
+import sequelize from './db';
 
 class SpecialReasons extends Model {}
 SpecialReasons.init(
