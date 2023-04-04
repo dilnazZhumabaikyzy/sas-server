@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
-
+import {sequelize} from './db.js';
+import Users from "./users.js";
 class Token extends Model {}
 Token.init(
   { 

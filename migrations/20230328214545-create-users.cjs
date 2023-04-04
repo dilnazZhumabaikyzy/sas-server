@@ -1,23 +1,29 @@
+const bcrypt = require('bcryptjs');
+
 const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('users', {
       user_id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
+      first_name: {
         type: Sequelize.STRING
       },
-      lastName: {
+      last_name: {
         type: Sequelize.STRING
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        set(value) {
+          const salt = bcrypt.genSaltSync(10);
+          const hashedPassword = bcrypt.hashSync(value, salt);
+          this.setDataValue('password', hashedPassword);
+        }
       },
-      role: {
-        type: Sequelize.STRING
+      role_id: {
+        type: Sequelize.STRING,
       },
     });
   },

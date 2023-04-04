@@ -10,7 +10,13 @@ COPY models ./models
 COPY migrations ./migrations
 COPY config ./config
 COPY app.js ./
-
+COPY routes ./routes
+COPY dtos ./dtos
+COPY exeptions ./exeptions
+COPY middlewares ./middlewares
+COPY seeders ./seeders
+COPY service ./service
+COPY controllers ./controllers
 # install dependencies
 RUN npm install
 

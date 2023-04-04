@@ -3,7 +3,6 @@ const migration = {
     await queryInterface.createTable("admins", {
       admin_id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
         references: {

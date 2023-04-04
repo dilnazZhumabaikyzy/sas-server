@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
-import { Users } from "./user.js";
+import {sequelize} from './db.js';
+import Users from "./users.js";
 
 class Students extends Model {}
 Students.init(
@@ -21,11 +21,7 @@ Students.init(
     major: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    lesson_ids: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
-      allowNull: false,
-    },
+    }
   },
   {
     sequelize,

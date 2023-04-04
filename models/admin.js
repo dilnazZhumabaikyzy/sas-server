@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from './db';
-import { Users } from "./user.js";
+import Users from "./users.js";
 
 class Admins extends Model {}
 Admins.init(
@@ -21,6 +21,6 @@ Admins.init(
   }
 );
 
-Admins.belongsTo(Users, { foreignKey: "admin_id" });
-Users.hasOne(Admins, { foreignKey: "admin_id" });
+Admins.belongsTo(Users, { foreignKey: "user_id" });
+Users.hasOne(Admins, { foreignKey: "user_id" });
 export default Admins;

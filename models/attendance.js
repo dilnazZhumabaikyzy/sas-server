@@ -1,5 +1,6 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
+import {sequelize} from './db.js';
+import Students from "./student.js";
 
 class Attendances extends Model {}
 Attendances.init(
@@ -7,6 +8,7 @@ Attendances.init(
     attendance_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
     },
     student_id: {
@@ -31,3 +33,4 @@ Attendances.init(
     modelName: "attendances",
   }
 );
+export default Attendances;

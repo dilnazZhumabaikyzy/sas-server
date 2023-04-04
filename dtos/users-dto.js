@@ -1,13 +1,13 @@
 export default class UsersDto {
     user_id;
-    firstName;
-    lastName;
+    first_name;
+    last_name;
     role;
 
     constructor(model) {
         this.user_id = model.user_id;
-        this.firstName = model.firstName;
-        this.lastName = model.lastName;
+        this.first_name = model.first_name;
+        this.last_name = model.last_name;
         this.role = model.role;
     }
 }

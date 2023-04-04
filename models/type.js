@@ -1,9 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
 
-class Role extends Model {}
-Role.init(
- 
+class Type extends Model {}
+Type.init( 
     {
     value: {
         type: DataTypes.STRING,
@@ -12,9 +11,9 @@ Role.init(
   },
   {
     sequelize,
-    modelName: "role",
+    modelName: "type",
   }
 );
 
 
-export default Role;
+export default Type;

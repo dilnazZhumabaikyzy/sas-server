@@ -1,5 +1,8 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
+import {sequelize} from './db.js';
+import Type from "./type.js";
+import Course from "./course.js";
+import Teachers from "./teacher.js";
 
 class Lessons extends Model {}
 Lessons.init(
@@ -7,18 +10,19 @@ Lessons.init(
     lesson_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
     },
-    type_id: {
-      type: DataTypes.INTEGER,
+    type: {
+      type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: LessonTypes,
-        key: "type_id",
+        model: Type,
+        key: "value",
       },
     },
     course_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       references: {
         model: Course,
@@ -34,14 +38,14 @@ Lessons.init(
       },
     },
     time: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    count: {
-      type: DataTypes.TINYINT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     group: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    room: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -51,3 +55,8 @@ Lessons.init(
     modelName: "lessons",
   }
 );
+
+Lessons.belongsTo(Type, { foreignKey: "type" });
+Type.hasMany(Lessons, { foreignKey: "type" });
+
+export default Lessons;

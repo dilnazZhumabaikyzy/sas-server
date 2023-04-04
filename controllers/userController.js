@@ -3,6 +3,32 @@ import userService from '../service/userService.js';
 
 
 class userController{
+    async registration(req,res, next){
+        try {
+            //error check
+            const errors = validationResult(req);
+            if(!errors.isEmpty()){
+                console.log(errors);
+                return next(ApiError.BadRequest(('Validation Error'), errors.array()))
+            }
+            //registration
+            const {user_id, password,first_name, last_name, role_id} = req.body;
+            let userData = null;
+            if(role.toLowerCase() == 'student'){
+                const {major} = req.body;
+                const lesson_ids = generateRandomLessons();
+                userData = await userService.registrationStudent(user_id, password,first_name, last_name,major,lesson_ids);
+            }else{
+                return next(ApiError.BadRequest(('Role is not student'), errors.array()))
+            }            
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
+            return res.json(userData);
+        } catch (error) {
+            next(error);
+        }        
+    }
+
+
     async login(req,res, next){
         try {
             const {email, password} = req.body;
@@ -42,6 +68,21 @@ class userController{
             next(error);
         }
     }
+
+    generateRandomLessons(){
+        const min = 1;
+        const max = 14;
+        let randomNum = 0;
+        const lessons = []
+        for(i=1;i<=8;i++){
+            randomNum =  Math.floor(Math.random() * (max - min + 1) + min)
+            lessons[i] = randomNum;
+        } 
+
+        return lessons;
+    }
+
+
 
 
 }

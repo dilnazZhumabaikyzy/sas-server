@@ -1,11 +1,11 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
+import {sequelize} from './db.js';
 
 class Courses extends Model {}
 Courses.init(
   {
     course_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
     },
@@ -19,3 +19,4 @@ Courses.init(
     modelName: "courses",
   }
 );
+export default Courses;

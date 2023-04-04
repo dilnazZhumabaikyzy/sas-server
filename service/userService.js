@@ -10,6 +10,36 @@ import Students from '../models/student.js';
 
 
 class UserService {
+    async registrationStudent(user_id, password, first_name, last_name, major, lesson_ids){
+        //checking if the id is busy.
+        const candidate = await Users.findOne({where:{user_id: user_id}})
+        if (candidate) {
+           throw ApiError.BadRequest(`Пользователь с почтовым адресом ${user_id} уже существует`)
+           return;
+        }        
+       
+        const user = await Users.create({
+            user_id: user_id,
+            password: password,
+            first_name: first_name,
+            last_name:last_name,
+            role_id: 'student' 
+          });
+        const student = await Students.create({
+            user_id: user_id,
+            major: major,
+            lesson_ids: lesson_ids
+          });
+               
+        const userDto = new UserDto(user);
+        const studentDto = new StudentDto(user,student);
+        const tokens = tokenService.generateTokens({...userDto});
+
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return {...tokens, user: studentDto}
+    }
+
+
     async login(user_id, password) {
         const user = await Users.findOne({where:{user_id: user_id}})
         if (!user) {
@@ -51,6 +81,7 @@ class UserService {
         return {...tokens, user: studentDto}
     }
     async getAllUsers() {
+        
         const users = await Users.findAll();
         return users;
       }

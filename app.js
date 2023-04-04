@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from 'dotenv';
 
-import bodyParser from 'body-parser';
-import sequelize from "./models/db.js";
+import cookieParser from 'cookie-parser';
+import { initialize } from  "./models/db.js";
+import {router as authRouter}from "./routes/authRouter.js";
+import errorMiddleware from "./middlewares/error-middleware.js";
 
 dotenv.config();
 
@@ -11,25 +13,31 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.json());
+app.use(cookieParser());
+app.use('/api', authRouter);
+ app.use(errorMiddleware);
+// app.use(authMiddleware);
+
+// Initialize the database connection
+initialize();
+
+
+async function run() {
+    try {
+        app.listen(port, () => {
+          console.log(`App listening on port ${port}`);
+        });     
+    } catch (err) {
+        console.log(err.stack);
+    }
+}
+
+run().catch(console.dir);
 
 
 
-sequelize.authenticate()
-  .then(() => {
-    console.log('Connected to the database.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
 

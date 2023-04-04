@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: postgres
-    restart: always
+    restart: "no"
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -11,6 +11,7 @@ services:
     ports:
       - "${DATABASE_PORT}:5432"
   app:
+    restart: "no"
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,5 +29,6 @@ services:
       - "${PORT}:${PORT}"
     depends_on:
       - db
+    stop_grace_period: 30s
     env_file:
       - .env
