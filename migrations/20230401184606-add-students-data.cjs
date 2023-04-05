@@ -4,25 +4,25 @@ module.exports = {
       "students",
       [
         {
-          student_id: 200107032,
-          authorized_id: null,
+          studentId: 200107032,
+          authorizedId: null,
           major: "Computer Science",
           
         },
         {
-          student_id: 200107119,
-          authorized_id: null,
+          studentId: 200107119,
+          authorizedId: null,
           major: "Computer Science",
         },
         {
-          student_id: 200107118,
-          authorized_id: null,
+          studentId: 200107118,
+          authorizedId: null,
           major: "Computer Science",
         
         },
         {
-          student_id: 200107052,
-          authorized_id: null,
+          studentId: 200107052,
+          authorizedId: null,
           major: "Computer Science",
         },
       ],

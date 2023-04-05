@@ -4,20 +4,20 @@ module.exports = {
       "enrollment",
       [
         {
-          student_id: '200107119',
-          lesson_id:'1'
+          studentId: '200107119',
+          lessonId:'1'
         },
         {
-          student_id: '200107119',
-          lesson_id:'2'
+          studentId: '200107119',
+          lessonId:'2'
         },
         {
-          student_id: '200107119',
-          lesson_id:'4'
+          studentId: '200107119',
+          lessonId:'4'
         },
         {
-          student_id: '200107119',
-          lesson_id:'6'
+          studentId: '200107119',
+          lessonId:'6'
         }     
       ],
       {}

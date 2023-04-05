@@ -19,7 +19,7 @@ Admins.init(
     sequelize,
     modelName: "admins",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 

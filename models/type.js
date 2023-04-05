@@ -13,7 +13,7 @@ Type.init(
     sequelize,
     modelName: "type",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 

@@ -4,7 +4,7 @@ import {sequelize} from './db.js';
 class Courses extends Model {}
 Courses.init(
   {
-    course_id: {
+    courseId: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
@@ -18,7 +18,7 @@ Courses.init(
     sequelize,
     modelName: "courses",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 export default Courses;

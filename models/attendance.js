@@ -11,19 +11,19 @@ Attendances.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    student_id: {
+    studentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Students,
-        key: "student_id",
+        key: "studentId",
       },
     },
-    entry_time: {
+    entryTime: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    exit_time: {
+    exitTime: {
       type: DataTypes.DATE,
       allowNull: false,
     },
@@ -32,7 +32,7 @@ Attendances.init(
     sequelize,
     modelName: "attendances",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
     
   }
 );

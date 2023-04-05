@@ -1,17 +1,17 @@
 export default class StudentDto{
-    student_id;
+    studentId;
     firstName;
     lastName;
     major;
-    authorized_id;
-    lesson_ids
+    authorizedId;
+    lessonIds
 
     constructor(user_model, student_model){
-        this.student_id = user_model.userId;
+        this.studentId = user_model.userId;
         this.lastName = user_model.lastName;
         this.firstName = user_model.firstName;
         this.major = student_model.major;
-        this.authorized_id = student_model.authorized_id;
-        this.lesson_ids = student_model.lesson_ids;
+        this.authorizedId = student_model.authorizedId;
+        this.lessonIds = student_model.lessonIds;
     }
 }

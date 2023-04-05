@@ -6,26 +6,26 @@ import Students from './student.js';
 class Enrollment extends Model {}
 Users.init({
   // Define the columns of the User table
-  enrollmetn_id: {
+  enrollmentId: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  student_id: {
+  studentId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     references: {
       model: Students,
-      key: "student_id",
+      key: "studentId",
     },
   },
-  lesson_id: {
+  lessonId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: Lessons,
-      key: "lesson_id",
+      key: "lessonId",
     },
   }
 
@@ -34,13 +34,13 @@ Users.init({
   sequelize, // Pass the Sequelize instance
   modelName: 'enrollment', // Set the table name
   timestamps: false, // Set timestamps option to false
-  underscored: true,
+  underscored: false,
 });
 
-Enrollment.belongsTo(Lessons, { foreignKey: "lesson_id" });
-Lessons.hasMany(Enrollment, { foreignKey: "lesson_id" });
+Enrollment.belongsTo(Lessons, { foreignKey: "lessonId" });
+Lessons.hasMany(Enrollment, { foreignKey: "lessonId" });
 
-Enrollment.belongsTo(Students, { foreignKey: "student_id" });
-Students.hasMany(Enrollment, { foreignKey: "student_id" });
+Enrollment.belongsTo(Students, { foreignKey: "studentId" });
+Students.hasMany(Enrollment, { foreignKey: "studentId" });
 
 export default Enrollment;

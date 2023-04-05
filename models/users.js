@@ -27,7 +27,7 @@ Users.init({
       this.setDataValue('password', hashedPassword);
     }
   },
-  role_id: {
+  roleId: {
     type: DataTypes.STRING,
     references: {
       model: Role, // reference the Role model
@@ -38,10 +38,10 @@ Users.init({
   sequelize, // Pass the Sequelize instance
   modelName: 'users', // Set the table name
   timestamps: false, // Set timestamps option to false
-  underscored: true, // Set underscored option to true
+  underscored: false, // Set underscored option to false
 });
 
-Users.belongsTo(Role, { foreignKey: "role_id" });
-Role.hasMany(Users, { foreignKey: "role_id" });
+Users.belongsTo(Role, { foreignKey: "roleId" });
+Role.hasMany(Users, { foreignKey: "roleId" });
 
 export default Users;

@@ -22,7 +22,7 @@ Token.init(
     sequelize,
     modelName: "token",
     timestamps: false, // Set timestamps option to false
-    underscored: true, // Set underscored option to true
+    underscored: false, // Set underscored option to true
   }
 );
 

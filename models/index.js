@@ -27,9 +27,12 @@ if (config.use_env_variable) {
 
 const files = fs.readdirSync(__dirname);
 for (const file of files) {
-  if (file.indexOf('.') === 0 || file === basename || file.slice(-3) !== '.js' || file.indexOf('.test.js') !== -1) {
+
+  if (file.indexOf('.') === 0 || file === basename || file.slice(-3) !== '.js' || file.indexOf('.test.js') !== -1 ||'db.js' === file) {
+    console.log("file excluded:", file)
     continue;
   }
+  console.log("file included:", file)
   const modelInstance = model.default(sequelize, Sequelize.DataTypes);
   db[model.name] = modelInstance;
 }

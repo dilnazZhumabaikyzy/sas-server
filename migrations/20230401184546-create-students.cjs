@@ -1,7 +1,7 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("students", {
-      student_id: {
+      studentId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -10,7 +10,7 @@ const migration = {
           key: "userId",
         },
       },
-      authorized_id: {
+      authorizedId: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },

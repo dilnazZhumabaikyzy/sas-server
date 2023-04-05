@@ -1,26 +1,26 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable("enrollment", {
-      enrollmetn_id: {
+      enrollmentId: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      student_id: {
+      studentId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         references: {
           model: "students",
-          key: "student_id",
+          key: "studentId",
         },
       },
-      lesson_id: {
+      lessonId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: "lessons",
-          key: "lesson_id",
+          key: "lessonId",
         }   
       }
     });

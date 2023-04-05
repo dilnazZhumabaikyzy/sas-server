@@ -2,7 +2,7 @@ const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("course", {
            //
-           course_id: {
+           courseId: {
             type: Sequelize.STRING,
             allowNull: false,
             primaryKey: true,

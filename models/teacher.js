@@ -6,7 +6,7 @@ import  Lessons  from "./lessons.js";
 class Teachers extends Model {}
 Teachers.init(
   {
-    teacher_id: {
+    teacherId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,12 +15,12 @@ Teachers.init(
         key: "userId",
       },
     },
-    lesson_id: {
+    lessonId: {
       type: DataTypes.ARRAY(Sequelize.INTEGER),
       allowNull: true,
       references: {
-        model: Lesson,
-        key: "lesson_id",
+        model: Lessons,
+        key: "lessonId",
       },
     },
   },
@@ -28,10 +28,10 @@ Teachers.init(
     sequelize,
     modelName: "teachers",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 
-Teachers.belongsTo(Users, { foreignKey: "teacher_id" });
-Users.hasOne(Teachers, { foreignKey: "teacher_id" });
+Teachers.belongsTo(Users, { foreignKey: "teacherId" });
+Users.hasOne(Teachers, { foreignKey: "teacherId" });
 export default Teachers;

@@ -2,7 +2,7 @@ const migration = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("lessons", {
            //
-           lesson_id: {
+           lessonId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -16,20 +16,20 @@ const migration = {
               key: "value",
             },
           },
-          course_id: {
+          courseId: {
             type: Sequelize.STRING,
             allowNull: false,
             references: {
               model: "course",
-              key: "course_id",
+              key: "courseId",
             },
           },
-          teacher_id: {
+          teacherId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
               model: "teachers",
-              key: "teacher_id",
+              key: "teacherId",
             },
           },
           time: {

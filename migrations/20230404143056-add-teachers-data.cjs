@@ -4,12 +4,12 @@ module.exports = {
       "teachers",
       [
         {
-          teacher_id: 200107073,
-          lesson_ids: [1, 2],
+          teacherId: 200107073,
+          lessonIds: [1, 2],
         },
         {
-          teacher_id: 200107114,
-          lesson_ids: [3,4],
+          teacherId: 200107114,
+          lessonIds: [3,4],
         }
       ], 
       {}

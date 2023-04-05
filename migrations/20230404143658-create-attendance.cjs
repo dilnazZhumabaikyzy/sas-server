@@ -8,19 +8,19 @@ const migration = {
             autoIncrement: true,
             primaryKey: true,
           },
-          student_id: {
+          studentId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
               model: "students",
-              key: "student_id",
+              key: "studentId",
             },
           },
-          entry_time: {
+          entryTime: {
             type: Sequelize.DATE,
             allowNull: false,
           },
-          exit_time: {
+          exitTime: {
             type: Sequelize.DATE,
             allowNull: false,
           }

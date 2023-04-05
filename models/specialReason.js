@@ -5,18 +5,18 @@ import Students from "./student.js";
 class SpecialReasons extends Model {}
 SpecialReasons.init(
   {
-    reason_id: {
+    reasonId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    student_id: {
+    studentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Students,
-        key: "student_id",
+        key: "studentId",
       },
     },
     document: {
@@ -40,7 +40,7 @@ SpecialReasons.init(
     sequelize,
     modelName: "specialReasons",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 export default SpecialReasons;

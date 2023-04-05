@@ -5,7 +5,7 @@ import Users from "./users.js";
 class Students extends Model {}
 Students.init(
   {
-    student_id: {
+    studentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -14,7 +14,7 @@ Students.init(
         key: "userId",
       },
     },
-    authorized_id: {
+    authorizedId: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -27,7 +27,7 @@ Students.init(
     sequelize,
     modelName: "students",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 

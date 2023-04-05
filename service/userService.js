@@ -10,7 +10,7 @@ import Students from '../models/student.js';
 
 
 class UserService {
-    async registrationStudent(userId, password, firstName, lastName, major, lesson_ids){
+    async registrationStudent(userId, password, firstName, lastName, major, lessonIds){
         //checking if the id is busy.
         const candidate = await Users.findOne({where:{userId: userId}})
         if (candidate) {
@@ -23,12 +23,12 @@ class UserService {
             password: password,
             firstName: firstName,
             lastName:lastName,
-            role_id: 'student' 
+            roleId: 'student' 
           });
         const student = await Students.create({
             userId: userId,
             major: major,
-            lesson_ids: lesson_ids
+            lessonIds: lessonIds
           });
                
         const userDto = new UserDto(user);
@@ -45,7 +45,7 @@ class UserService {
         if (!user) {
             throw ApiError.BadRequest('Пользователь с таким email не найден')
         }
-        const student =  await Students.findOne({where:{student_id: userId}})
+        const student =  await Students.findOne({where:{studentId: userId}})
         const isPassEquals = await bcrypt.compare(password, user.password);
         if (!isPassEquals) {
             throw ApiError.BadRequest('Неверный пароль');
@@ -72,7 +72,7 @@ class UserService {
             throw ApiError.UnauthorizedError();
         }
         const user = await Users.findOne({where:{userId: userId}})
-        const student =  await Students.findOne({where:{student_id: userId}})
+        const student =  await Students.findOne({where:{studentId: userId}})
         const userDto = new UserDto(user);
         const studentDto = new StudentDto(user,student);
         const tokens = tokenService.generateTokens({...userDto});

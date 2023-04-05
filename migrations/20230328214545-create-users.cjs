@@ -22,7 +22,7 @@ const migration = {
           this.setDataValue('password', hashedPassword);
         }
       },
-      role_id: {
+      roleId: {
         type: Sequelize.STRING,
       },
     });

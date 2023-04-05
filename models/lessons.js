@@ -7,7 +7,7 @@ import Teachers from "./teacher.js";
 class Lessons extends Model {}
 Lessons.init(
   {
-    lesson_id: {
+    lessonId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -21,20 +21,20 @@ Lessons.init(
         key: "value",
       },
     },
-    course_id: {
+    courseId: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {
         model: Course,
-        key: "course_id",
+        key: "courseId",
       },
     },
-    teacher_id: {
+    teacherId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Teachers,
-        key: "teacher_id",
+        key: "teacherId",
       },
     },
     time: {
@@ -54,7 +54,7 @@ Lessons.init(
     sequelize,
     modelName: "lessons",
     timestamps: false, // Set timestamps option to false
-    underscored: true,
+    underscored: false,
   }
 );
 
