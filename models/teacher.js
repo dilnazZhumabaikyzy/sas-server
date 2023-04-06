@@ -16,7 +16,7 @@ Teachers.init(
       },
     },
     lessonId: {
-      type: DataTypes.ARRAY(Sequelize.INTEGER),
+      type: DataTypes.ARRAY(sequelize.INTEGER),
       allowNull: true,
       references: {
         model: Lessons,

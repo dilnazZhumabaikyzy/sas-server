@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
 
-class Role extends Model {}
-Role.init(
+class Roles extends Model {}
+Roles.init(
  
     {
     value: {
@@ -12,11 +12,11 @@ Role.init(
   },
   {
     sequelize,
-    modelName: "role",
+    modelName: "roles",
     timestamps: false, // Set timestamps option to false
     underscored: false,
   }
 );
 
 
-export default Role;
+export default Roles;

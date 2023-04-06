@@ -36,11 +36,11 @@ class UserService {
         console.log(student)
         const userDto = new UserDto(user);
         const studentDto = new StudentDto(user,student);
-        consol.log(userDto)
+        console.log(userDto)
         const tokens = tokenService.generateTokens({...userDto});
-        consol.log(tokens)
-        consol.log("generate success")
-        await tokenService.saveToken(userDto.studentId, tokens.refreshToken);
+        console.log(tokens)
+        console.log("generate success")
+        await tokenService.saveToken(userDto.userId, tokens.refreshToken);
         return {...tokens, user: studentDto}
     }
 

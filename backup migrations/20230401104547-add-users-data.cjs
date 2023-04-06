@@ -4,13 +4,6 @@ module.exports = {
       "users",
       [
         {
-          userId: 000000000,
-          firstName: "John",
-          lastName: "Galt",
-          password: "a12jjen34o29",
-          roleId: "admin",
-        },
-        {
           userId: 200107114,
           firstName: "John",
           lastName: "Galt",

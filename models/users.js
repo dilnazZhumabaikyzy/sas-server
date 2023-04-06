@@ -1,7 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import {sequelize} from './db.js'; // Import the Sequelize instance created earlier
 import bcrypt from 'bcryptjs';
-import Role from './role.js';
+import Roles from './role.js';
 
 class Users extends Model {}
 Users.init({
@@ -30,7 +30,7 @@ Users.init({
   roleId: {
     type: DataTypes.STRING,
     references: {
-      model: Role, // reference the Role model
+      model: Roles, // reference the Role model
       key: 'value' // reference the value column in the Role table
     }
   }
@@ -41,7 +41,7 @@ Users.init({
   underscored: false, // Set underscored option to false
 });
 
-Users.belongsTo(Role, { foreignKey: "roleId" });
-Role.hasMany(Users, { foreignKey: "roleId" });
+Users.belongsTo(Roles, { foreignKey: 'roleId' });
+Roles.hasMany(Users, { foreignKey: 'roleId' });
 
 export default Users;
