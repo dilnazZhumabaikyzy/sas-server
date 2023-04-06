@@ -6,8 +6,8 @@ const migration = {
         allowNull: false,
         primaryKey: true,
         references: {
-          model: "users",
-          key: "userId",
+          model: 'users',
+          key: 'userId',
         },
       },
       refreshToken:{

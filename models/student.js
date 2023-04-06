@@ -31,7 +31,7 @@ Students.init(
   }
 );
 
-Students.belongsTo(Users, { foreignKey: "userId" });
-Users.hasOne(Students, { foreignKey: "userId" });
+Users.hasOne(Students, { foreignKey: 'studentId' });
+Students.belongsTo(Users, { foreignKey: 'studentId' });
 
 export default Students

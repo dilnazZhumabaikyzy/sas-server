@@ -26,5 +26,6 @@ Token.init(
   }
 );
 
-
+Users.belongsTo(Token, { foreignKey: 'userId' });
+Token.hasMany(Users, { foreignKey: 'userId' });
 export default Token;

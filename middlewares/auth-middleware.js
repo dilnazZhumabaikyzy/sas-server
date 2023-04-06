@@ -1,6 +1,7 @@
 import ApiError from '../exeptions/api-error.js';
 import tokenService from '../service/tokenService.js';
 
+
 export default function (req, res, next) {
     try {
         // check if authorized

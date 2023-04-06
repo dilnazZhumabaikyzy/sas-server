@@ -1,5 +1,6 @@
 import { validationResult } from "express-validator";
 import userService from '../service/userService.js';
+import ApiError from "../exeptions/api-error.js";
 
 
 class userController{
@@ -14,10 +15,10 @@ class userController{
             //registration
             const {userId, password,firstName, lastName, roleId} = req.body;
             let userData = null;
-            if(role.toLowerCase() == 'student'){
+            if(roleId.toLowerCase() == 'student'){
                 const {major} = req.body;
-                const lessonIds = generateRandomLessons();
-                userData = await userService.registrationStudent(userId, password,firstName, lastName,major,lessonIds);
+               
+                userData = await userService.registrationStudent(userId, password,firstName, lastName,major);
             }else{
                 return next(ApiError.BadRequest(('Role is not student'), errors.array()))
             }            

@@ -4,7 +4,7 @@ export default class StudentDto{
     lastName;
     major;
     authorizedId;
-    lessonIds
+   
 
     constructor(user_model, student_model){
         this.studentId = user_model.userId;
@@ -12,6 +12,6 @@ export default class StudentDto{
         this.firstName = user_model.firstName;
         this.major = student_model.major;
         this.authorizedId = student_model.authorizedId;
-        this.lessonIds = student_model.lessonIds;
+      
     }
 }

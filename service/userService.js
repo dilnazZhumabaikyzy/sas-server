@@ -10,14 +10,15 @@ import Students from '../models/student.js';
 
 
 class UserService {
-    async registrationStudent(userId, password, firstName, lastName, major, lessonIds){
+    async registrationStudent(userId, password, firstName, lastName, major){
         //checking if the id is busy.
         const candidate = await Users.findOne({where:{userId: userId}})
         if (candidate) {
            throw ApiError.BadRequest(`Пользователь с почтовым адресом ${userId} уже существует`)
            return;
         }        
-       
+       console.log(userId+" "+password+" "+firstName+" "+lastName+" "+major)
+
         const user = await Users.create({
             userId: userId,
             password: password,
@@ -25,17 +26,21 @@ class UserService {
             lastName:lastName,
             roleId: 'student' 
           });
+          console.log("Student added to Users table")
+          console.log(user)
         const student = await Students.create({
-            userId: userId,
-            major: major,
-            lessonIds: lessonIds
+            studentId: userId,
+            major: major
           });
-               
+        console.log("Student added to Students table")
+        console.log(student)
         const userDto = new UserDto(user);
         const studentDto = new StudentDto(user,student);
+        consol.log(userDto)
         const tokens = tokenService.generateTokens({...userDto});
-
-        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        consol.log(tokens)
+        consol.log("generate success")
+        await tokenService.saveToken(userDto.studentId, tokens.refreshToken);
         return {...tokens, user: studentDto}
     }
 
