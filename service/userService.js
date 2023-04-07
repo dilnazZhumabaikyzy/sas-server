@@ -46,20 +46,25 @@ class UserService {
 
 
     async login(userId, password) {
+        console.log("service login params: "+ userId +" " + password)
         const user = await Users.findOne({where:{userId: userId}})
         if (!user) {
             throw ApiError.BadRequest('Пользователь с таким email не найден')
         }
+        console.log("user findOne()"+user)
         const student =  await Students.findOne({where:{studentId: userId}})
+        console.log("student findOne()"+student)
+
         const isPassEquals = await bcrypt.compare(password, user.password);
         if (!isPassEquals) {
             throw ApiError.BadRequest('Неверный пароль');
         }
+        console.log("password is correct");
         const userDto = new UserDto(user);
         const studentDto = new StudentDto(user,student);
         const tokens = tokenService.generateTokens({...userDto});
-
-        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        console.log("tokkens generated");
+        await tokenService.saveToken(userDto.userId, tokens.refreshToken);
         return {...tokens, user: studentDto}
     }
     async logout(refreshToken) {
@@ -76,8 +81,8 @@ class UserService {
         if (!userData || !tokenFromDb) {
             throw ApiError.UnauthorizedError();
         }
-        const user = await Users.findOne({where:{userId: userId}})
-        const student =  await Students.findOne({where:{studentId: userId}})
+        const user = await Users.findOne({where:{userId: userData.userId}})
+        const student =  await Students.findOne({where:{studentId: userData.userId}})
         const userDto = new UserDto(user);
         const studentDto = new StudentDto(user,student);
         const tokens = tokenService.generateTokens({...userDto});

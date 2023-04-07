@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
 import Users from "./users.js";
-class Token extends Model {}
-Token.init(
+class Tokens extends Model {}
+Tokens.init(
   { 
     userId: {
     type: DataTypes.INTEGER,
@@ -11,21 +11,21 @@ Token.init(
     references: {
       model: Users,
       key: "userId",
-    },
-    refreshToken:{
+    }
+  },
+   refreshToken:{
     type: DataTypes.STRING, 
     allowNull: false
     }
-  }
 },
   {
     sequelize,
-    modelName: "token",
+    modelName: "tokens",
     timestamps: false, // Set timestamps option to false
     underscored: false, // Set underscored option to true
   }
 );
 
-Users.belongsTo(Token, { foreignKey: 'userId' });
-Token.hasMany(Users, { foreignKey: 'userId' });
-export default Token;
+Users.belongsTo(Tokens, { foreignKey: 'userId' });
+Tokens.hasMany(Users, { foreignKey: 'userId' });
+export default Tokens;

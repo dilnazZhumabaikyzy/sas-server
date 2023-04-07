@@ -1,5 +1,5 @@
 import jwt  from "jsonwebtoken";
-import Token from "../models/token.js";
+import Tokens from "../models/token.js";
 
 class TokenService{
     generateTokens(payload){
@@ -28,22 +28,25 @@ class TokenService{
         }
     }
     async saveToken(userId, refreshToken) {
-        let token = await Token.findOne({ where: { userId: userId } });
+      console.log("saveToken() userId:  "+userId)
+        let token = await Tokens.findOne({ where: { userId: userId } });
         if (token) {
+          console.log("if:  "+token)
           token.refreshToken = refreshToken;
           await token.save();
         } else {
-          token = await Token.create({ user: userId, refreshToken });
+          console.log("else:  "+token)
+          token = await Tokens.create({ userId: userId, refreshToken });
         }
         return token;
       }
       async removeToken(refreshToken) {
-        const result = await Token.destroy({ where: { refreshToken } });
+        const result = await Tokens.destroy({ where: { refreshToken } });
         return result === 1; // Return true if one row was deleted
       }
       
       async findToken(refreshToken) {
-        const tokenData = await Token.findOne({ where: { refreshToken } });
+        const tokenData = await Tokens.findOne({ where: { refreshToken } });
         return tokenData;
       }
       
