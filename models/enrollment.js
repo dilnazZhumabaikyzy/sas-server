@@ -3,8 +3,8 @@ import {sequelize} from './db.js'; // Import the Sequelize instance created earl
 import Lessons from './lessons.js';
 import Students from './student.js';
 
-class Enrollment extends Model {}
-Enrollment.init({
+class Enrollments extends Model {}
+Enrollments.init({
   // Define the columns of the User table
   enrollmentId: {
     type: DataTypes.INTEGER,
@@ -32,15 +32,15 @@ Enrollment.init({
 
 }, {
   sequelize, // Pass the Sequelize instance
-  modelName: 'enrollment', // Set the table name
+  modelName: 'enrollments', // Set the table name
   timestamps: false, // Set timestamps option to false
   underscored: false,
 });
 
-Enrollment.belongsTo(Lessons, { foreignKey: "lessonId" });
-Lessons.hasMany(Enrollment, { foreignKey: "lessonId" });
+Enrollments.belongsTo(Lessons, { foreignKey: "lessonId" });
+Lessons.hasMany(Enrollments, { foreignKey: "lessonId" });
 
-Enrollment.belongsTo(Students, { foreignKey: "studentId" });
-Students.hasMany(Enrollment, { foreignKey: "studentId" });
+Enrollments.belongsTo(Students, { foreignKey: "studentId" });
+Students.hasMany(Enrollments, { foreignKey: "studentId" });
 
-export default Enrollment;
+export default Enrollments;

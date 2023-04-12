@@ -1,6 +1,6 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("attendance", {
+    await queryInterface.createTable("attendances", {
            //
            attendanceId: {
             type: Sequelize.INTEGER,
@@ -16,9 +16,13 @@ const migration = {
               key: "studentId",
             },
           },
-          time: {
+          entryTime: {
             type: Sequelize.STRING,
             allowNull: false,
+          },
+          exitTime: {
+            type: Sequelize.STRING,
+            allowNull: true,
           },
           lessonId: {
             type: Sequelize.INTEGER,
@@ -32,7 +36,7 @@ const migration = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("attendance");
+    await queryInterface.dropTable("attendances");
   },
 };
 

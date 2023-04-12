@@ -1,6 +1,6 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("specialReason", {
+    await queryInterface.createTable("specialReasons", {
       reasonId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -35,7 +35,7 @@ const migration = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("specialReason");
+    await queryInterface.dropTable("specialReasons");
   },
 };
 

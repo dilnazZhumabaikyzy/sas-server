@@ -20,9 +20,13 @@ Attendances.init(
         key: "studentId",
       },
     },
-    time: {
+    entryTime: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    exitTime: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     lessonId: {
       type: DataTypes.INTEGER,
