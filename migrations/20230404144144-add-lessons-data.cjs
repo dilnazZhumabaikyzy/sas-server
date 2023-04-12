@@ -6,7 +6,7 @@ module.exports = {
       //total count: 7
       //Lectures
        {
-        type: 'Lecture',
+        lessonType: 'Lecture',
         teacherId: 200107111,
         time:'Monday 12:00',
         group: '01N',
@@ -14,7 +14,7 @@ module.exports = {
         courseId:'CSS216'
        },
        {
-        type: 'Lecture',
+        lessonType: 'Lecture',
         teacherId: 200107111,
         time:'Monday 13:00',
         group: '01N',
@@ -22,7 +22,7 @@ module.exports = {
         courseId:'CSS216'
        },
        {
-        type: 'Lecture',
+        lessonType: 'Lecture',
         teacherId: 200107111,
         time:'Monday 14:00',
         group: '02N',
@@ -30,7 +30,7 @@ module.exports = {
         courseId:'CSS216'
        },
        {
-        type: 'Lecture',
+        lessonType: 'Lecture',
         teacherId:200107112,
         time:'Monday 16:00',
         group: '01N',
@@ -39,7 +39,7 @@ module.exports = {
        },
        //Practices
        {
-        type: 'Practice',
+        lessonType: 'Practice',
         teacherId:200107112,
         time:'Monday 17:00',
         group: '03P',
@@ -47,7 +47,7 @@ module.exports = {
         courseId:'MDE154'
        },
        {
-        type: 'Practice',
+        lessonType: 'Practice',
         teacherId:200107111,
         time:'Wednesday 12:00',
         group: '05P',
@@ -55,7 +55,7 @@ module.exports = {
         courseId:'CSS216'
        }  ,
        {
-        type: 'Practice',
+        lessonType: 'Practice',
         teacherId:200107111,
         time:'Wednesday 13:00',
         group: '05P',

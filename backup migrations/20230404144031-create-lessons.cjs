@@ -20,7 +20,7 @@ const migration = {
             type: Sequelize.STRING,
             allowNull: false,
             references: {
-              model: "course",
+              model: "courses",
               key: "courseId",
             },
           },

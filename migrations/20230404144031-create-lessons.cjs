@@ -8,11 +8,11 @@ const migration = {
             autoIncrement: true,
             primaryKey: true,
           },
-          type: {
+          lessonType: {
             type: Sequelize.STRING,
             allowNull: false,
             references: {
-              model: "type",
+              model: "types",
               key: "value",
             },
           },
@@ -20,7 +20,7 @@ const migration = {
             type: Sequelize.STRING,
             allowNull: false,
             references: {
-              model: "course",
+              model: "courses",
               key: "courseId",
             },
           },

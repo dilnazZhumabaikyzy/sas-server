@@ -1,6 +1,6 @@
 const migration = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("type", {
+    await queryInterface.createTable("types", {
            //
            value: {
             type: Sequelize.STRING,
@@ -10,7 +10,7 @@ const migration = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("type");
+    await queryInterface.dropTable("types");
   },
 };
 

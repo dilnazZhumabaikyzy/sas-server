@@ -4,7 +4,7 @@ import Lessons from './lessons.js';
 import Students from './student.js';
 
 class Enrollment extends Model {}
-Users.init({
+Enrollment.init({
   // Define the columns of the User table
   enrollmentId: {
     type: DataTypes.INTEGER,

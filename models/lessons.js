@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
-import Type from "./type.js";
-import Course from "./course.js";
+import Types from "./type.js";
+import Courses from "./course.js";
 import Teachers from "./teacher.js";
 
 class Lessons extends Model {}
@@ -13,11 +13,11 @@ Lessons.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    type: {
+    lessonType: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: Type,
+        model: Types,
         key: "value",
       },
     },
@@ -25,7 +25,7 @@ Lessons.init(
       type: DataTypes.STRING,
       allowNull: false,
       references: {
-        model: Course,
+        model: Courses,
         key: "courseId",
       },
     },
@@ -58,7 +58,7 @@ Lessons.init(
   }
 );
 
-Lessons.belongsTo(Type, { foreignKey: "type" });
-Type.hasMany(Lessons, { foreignKey: "type" });
+Lessons.belongsTo(Types, { foreignKey: "lessonType" });
+Types.hasMany(Lessons, { foreignKey: "lessonType" });
 
 export default Lessons;
