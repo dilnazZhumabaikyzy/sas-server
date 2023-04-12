@@ -16,12 +16,8 @@ Teachers.init(
       },
     },
     lessonId: {
-      type: DataTypes.ARRAY(sequelize.INTEGER),
-      allowNull: true,
-      references: {
-        model: Lessons,
-        key: "lessonId",
-      },
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: true
     },
   },
   {
@@ -32,6 +28,8 @@ Teachers.init(
   }
 );
 
-Teachers.belongsTo(Users, { foreignKey: "teacherId" });
-Users.hasOne(Teachers, { foreignKey: "teacherId" });
+
+Users.hasOne(Teachers, { foreignKey: 'teacherId' });
+Teachers.belongsTo(Users, { foreignKey: 'teacherId' });
+
 export default Teachers;

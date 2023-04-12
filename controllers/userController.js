@@ -70,22 +70,6 @@ class userController{
         }
     }
 
-    generateRandomLessons(){
-        const min = 1;
-        const max = 14;
-        let randomNum = 0;
-        const lessons = []
-        for(i=1;i<=8;i++){
-            randomNum =  Math.floor(Math.random() * (max - min + 1) + min)
-            lessons[i] = randomNum;
-        } 
-
-        return lessons;
-    }
-
-
-
-
 }
 
 

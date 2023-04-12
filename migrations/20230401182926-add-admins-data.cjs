@@ -4,17 +4,8 @@ module.exports = {
       "admins",
       [
         {
-          adminId: 200107114,
-        },
-        {
-          adminId: 200878192,
-        },
-        {
-          adminId: 200107115,
-        },
-        {
-          adminId: 200107042,
-        },
+          adminId: 200107110,
+        }
       ],
       {}
     );

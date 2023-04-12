@@ -16,13 +16,17 @@ const migration = {
               key: "studentId",
             },
           },
-          entryTime: {
-            type: Sequelize.DATE,
+          time: {
+            type: Sequelize.STRING,
             allowNull: false,
           },
-          exitTime: {
-            type: Sequelize.DATE,
+          lessonId: {
+            type: Sequelize.INTEGER,
             allowNull: false,
+            references: {
+              model: "students",
+              key: "studentId",
+            },
           }
     });
   },

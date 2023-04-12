@@ -8,6 +8,6 @@ export default class UsersDto {
         this.userId = model.userId;
         this.firstName = model.firstName;
         this.lastName = model.lastName;
-        this.role = model.role;
+        this.role = model.roleId;
     }
 }

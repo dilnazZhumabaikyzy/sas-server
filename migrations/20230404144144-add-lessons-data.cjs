@@ -7,7 +7,7 @@ module.exports = {
       //Lectures
        {
         type: 'Lecture',
-        teacherId: 200107073,
+        teacherId: 200107111,
         time:'Monday 12:00',
         group: '01N',
         room:'E101',
@@ -15,7 +15,7 @@ module.exports = {
        },
        {
         type: 'Lecture',
-        teacherId: 200107073,
+        teacherId: 200107111,
         time:'Monday 13:00',
         group: '01N',
         room:'E101',
@@ -23,7 +23,7 @@ module.exports = {
        },
        {
         type: 'Lecture',
-        teacherId: 200107114,
+        teacherId: 200107111,
         time:'Monday 14:00',
         group: '02N',
         room:'E102',
@@ -31,7 +31,7 @@ module.exports = {
        },
        {
         type: 'Lecture',
-        teacherId:200107114,
+        teacherId:200107112,
         time:'Monday 16:00',
         group: '01N',
         room:'G217',
@@ -40,7 +40,7 @@ module.exports = {
        //Practices
        {
         type: 'Practice',
-        teacherId:200107114,
+        teacherId:200107112,
         time:'Monday 17:00',
         group: '03P',
         room:'G202',
@@ -48,7 +48,7 @@ module.exports = {
        },
        {
         type: 'Practice',
-        teacherId:200107073,
+        teacherId:200107111,
         time:'Wednesday 12:00',
         group: '05P',
         room:'H101',
@@ -56,7 +56,7 @@ module.exports = {
        }  ,
        {
         type: 'Practice',
-        teacherId:200107073,
+        teacherId:200107111,
         time:'Wednesday 13:00',
         group: '05P',
         room:'H101',

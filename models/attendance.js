@@ -1,6 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
 import Students from "./student.js";
+import Lessons from "./lessons.js";
 
 class Attendances extends Model {}
 Attendances.init(
@@ -19,14 +20,19 @@ Attendances.init(
         key: "studentId",
       },
     },
-    entryTime: {
-      type: DataTypes.DATE,
+    time: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    exitTime: {
-      type: DataTypes.DATE,
+    lessonId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-    },
+      references: {
+        model: Lessons,
+        key: "lessonId",
+      },
+    }
+  
   },
   {
     sequelize,
@@ -34,6 +40,8 @@ Attendances.init(
     timestamps: false, // Set timestamps option to false
     underscored: false,
     
-  }
+  },
+
+  
 );
 export default Attendances;

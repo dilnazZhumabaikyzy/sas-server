@@ -4,13 +4,30 @@ module.exports = {
       "students",
       [
         {
-          studentId: 200107032,
+          studentId: 200107114,
           authorizedId: null,
           major: "Computer Science",
           
         },
         {
-          studentId: 200107119,
+          studentId: 200107113,
+          authorizedId: null,
+          major: "Two Foreign Languages",
+          
+        },
+        {
+          studentId: 200107115,
+          authorizedId: null,
+          major: "Computer Science",
+        },
+        {
+          studentId: 200107116,
+          authorizedId: null,
+          major: "Computer Science",
+        
+        },
+        {
+          studentId: 200107117,
           authorizedId: null,
           major: "Computer Science",
         },
@@ -18,10 +35,14 @@ module.exports = {
           studentId: 200107118,
           authorizedId: null,
           major: "Computer Science",
-        
         },
         {
-          studentId: 200107052,
+          studentId: 200107119,
+          authorizedId: null,
+          major: "Computer Science",
+        },
+        {
+          studentId: 200107120,
           authorizedId: null,
           major: "Computer Science",
         },

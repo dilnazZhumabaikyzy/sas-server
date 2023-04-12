@@ -1,6 +1,6 @@
 import jwt  from "jsonwebtoken";
 import config from '../config/config.js';
-const {secret} = config
+
 
 export default function (roles) {
     return function (req, res, next) {
@@ -9,7 +9,10 @@ export default function (roles) {
         }
 
         try {
-            // const token = req.headers.authorization.split(' ')[1]
+            console.log("ROLE MIDDLEWARE TEST!")
+            const secret = process.env.JWT_ACCESS_SECRET
+            const token = req.headers.authorization.split(' ')[1]
+            console.log(token)
             // if (!token) {
             //     return res.status(403).json({message: "Пользователь не авторизован"})
             // }

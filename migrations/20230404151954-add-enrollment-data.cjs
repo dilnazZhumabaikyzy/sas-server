@@ -4,11 +4,11 @@ module.exports = {
       "enrollment",
       [
         {
-          studentId: '200107119',
+          studentId: '200107113',
           lessonId:'1'
         },
         {
-          studentId: '200107119',
+          studentId: '200107113',
           lessonId:'2'
         },
         {
@@ -18,7 +18,15 @@ module.exports = {
         {
           studentId: '200107119',
           lessonId:'6'
-        }     
+        },
+        {
+          studentId: '200107117',
+          lessonId:'1'
+        },     
+        {
+          studentId: '200107118',
+          lessonId:'1'
+        },
       ],
       {}
     );
