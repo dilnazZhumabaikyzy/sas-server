@@ -1,10 +1,12 @@
-import AttendanceService from "../service/attendanceService.js";
+import attendanceService from "../service/attendanceService.js";
 
 class studentController{    
     async registrate(req,res, next){
         try {
             const {lessonId, userId} = req.body;
-            const attendanceStatus = await AttendanceService.registrate(lessonId, userId);         
+            console.log("attendancecontroller")
+            const attendanceStatus = await attendanceService.registrate(lessonId, userId);      
+            console.log(attendanceStatus)  
             return res.json(attendanceStatus);
         } catch (error) {
             next(error);

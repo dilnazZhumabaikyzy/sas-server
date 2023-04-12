@@ -6,6 +6,7 @@ import Enrollment from "../models/enrollment.js";
 class AttendanceService{
     async registrate(lessonId,userId){
         const enrollment = await Enrollment.findOne({where: {lessonId:lessonId, studentId:userId}})
+        console.log(enrollment)
         if(!enrollment){
             throw ApiError.UnenrolledLesson()
         }
@@ -32,4 +33,4 @@ class AttendanceService{
     }
 }
 
-export default AttendanceService;
+export default new AttendanceService();
