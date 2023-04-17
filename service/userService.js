@@ -8,6 +8,7 @@ import Users from "../models/users.js";
 import StudentDto from '../dtos/student-dto.js';
 import Students from '../models/student.js';
 import { Sequelize } from 'sequelize';
+import Teachers from '../models/teacher.js';
 
 
 class UserService {
@@ -53,20 +54,37 @@ class UserService {
             throw ApiError.BadRequest('Пользователь с таким email не найден')
         }
         console.log("user findOne()"+user)
-        const student =  await Students.findOne({where:{studentId: userId}})
-        console.log("student findOne()"+student)
-
         const isPassEquals = await bcrypt.compare(password, user.password);
         if (!isPassEquals) {
             throw ApiError.BadRequest('Неверный пароль');
         }
         console.log("password is correct");
         const userDto = new UserDto(user);
-        const studentDto = new StudentDto(user,student);
+        const {roleId} = user;
+
+
+        let dto = null;
+        //if student
+        if(roleId == 'student'){
+               const student =  await Students.findOne({where:{studentId: userId}})
+               console.log("student findOne()"+student)
+               const studentDto = new StudentDto(user, student);
+               dto = studentDto;
+        }
+        else if(roleId == 'teacher'){
+            //Teachers table 
+            dto = userDto
+        }
+        else{
+            dto = userDto
+        }
+
+       
         const tokens = tokenService.generateTokens({...userDto});
         console.log("tokkens generated");
         await tokenService.saveToken(userDto.userId, tokens.refreshToken);
-        return {...tokens, user: studentDto}
+
+        return {...tokens, user: dto}
     }
     async logout(refreshToken) {
         const token = await tokenService.removeToken(refreshToken);
@@ -103,8 +121,9 @@ class UserService {
               [Sequelize.Op.or]: [
                 Sequelize.literal(`CAST("students"."studentId" AS TEXT) LIKE '%${key}%'`),
                 {
-                  '$User.firstName$': { [Sequelize.Op.like]: `%${key}%` },
-                  '$User.lastName$': { [Sequelize.Op.like]: `%${key}%` }
+                  '$user.firstName$': { [Sequelize.Op.like]: `%${key}%` }},
+                {
+                  '$user.lastName$': { [Sequelize.Op.like]: `%${key}%` }
                 }
               ]
             },
@@ -116,7 +135,28 @@ class UserService {
             attributes: ['studentId', 'authorizedId']
           });  
         return students;
-      }  
+      } 
+      async searchTeacher(key){
+        const teachers = await Teachers.findAll({
+            where: {
+              [Sequelize.Op.or]: [
+                Sequelize.literal(`CAST("teachers"."teacherId" AS TEXT) LIKE '%${key}%'`),
+                {
+                  '$user.firstName$': { [Sequelize.Op.like]: `%${key}%` }},
+                {
+                  '$user.lastName$': { [Sequelize.Op.like]: `%${key}%` }
+                }
+              ]
+            },
+            include: {
+              model: Users,
+              as: 'user', // set alias for the "Users" table
+              attributes: ['firstName', 'lastName']
+            },
+            attributes: ['teacherId', 'lessonId']
+          });  
+        return teachers;
+      }   
 }
 
 export default new UserService();

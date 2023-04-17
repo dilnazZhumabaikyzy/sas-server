@@ -29,6 +29,7 @@ router.post('/registrate', studentController.registrate);
 
 //user Routes
 router.post('/searchStudents', userController.searchStudent);
+router.post('/searchStudents', userController.searchTeacher);
 
 
 export  {router};
