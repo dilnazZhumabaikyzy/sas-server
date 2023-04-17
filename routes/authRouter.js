@@ -15,6 +15,20 @@ router.post('/logout', userController.logout);
 router.get('/refresh', userController.refresh);
 router.get('/testAuth',authMiddleware, userController.getUsers);
 router.get('/testRole',authMiddleware, roleMiddleware(["admin"]), userController.getUsers);
+
 router.get('/test', userController.getUsers );
-router.post('/testRegistrate', studentController.registrate);
+//Special Reason Routes
+
+router.post('/recordSpecialReason', studentController.recordReason);
+router.post('/getAuthorizedUsers', studentController.getAuthorized);
+
+//Student Routes
+router.post('/registrate', studentController.registrate);
+
+//teacher Routes
+
+//user Routes
+router.post('/searchStudents', userController.searchStudent);
+
+
 export  {router};

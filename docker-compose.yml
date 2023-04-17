@@ -25,7 +25,8 @@ services:
       DATABASE_PORT: ${DATABASE_PORT}
       JWT_ACCESS_SECRET:  ${JWT_ACCESS_SECRET}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
-      CLIENT_URL: ${CLIENT_URL}
+      CLIENT_URL_1: ${CLIENT_URL_1}
+      CLIENT_URL_2: ${CLIENT_URL_2}
     ports:
       - "${PORT}:${PORT}"
     depends_on:

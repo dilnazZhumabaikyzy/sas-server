@@ -7,6 +7,7 @@ import ApiError from "../exeptions/api-error.js";
 import Users from "../models/users.js";
 import StudentDto from '../dtos/student-dto.js';
 import Students from '../models/student.js';
+import { Sequelize } from 'sequelize';
 
 
 class UserService {
@@ -95,6 +96,27 @@ class UserService {
         const users = await Users.findAll();
         return users;
       }
+
+      async searchStudent(key){
+        const students = await Students.findAll({
+            where: {
+              [Sequelize.Op.or]: [
+                Sequelize.literal(`CAST("students"."studentId" AS TEXT) LIKE '%${key}%'`),
+                {
+                  '$User.firstName$': { [Sequelize.Op.like]: `%${key}%` },
+                  '$User.lastName$': { [Sequelize.Op.like]: `%${key}%` }
+                }
+              ]
+            },
+            include: {
+              model: Users,
+              as: 'user', // set alias for the "Users" table
+              attributes: ['firstName', 'lastName']
+            },
+            attributes: ['studentId', 'authorizedId']
+          });  
+        return students;
+      }  
 }
 
 export default new UserService();

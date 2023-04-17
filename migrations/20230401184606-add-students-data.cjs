@@ -11,18 +11,18 @@ module.exports = {
         },
         {
           studentId: 200107113,
-          authorizedId: null,
+          authorizedId: 200107114,
           major: "Two Foreign Languages",
           
         },
         {
           studentId: 200107115,
-          authorizedId: null,
+          authorizedId: 200107114,
           major: "Computer Science",
         },
         {
           studentId: 200107116,
-          authorizedId: null,
+          authorizedId: 200107114,
           major: "Computer Science",
         
         },

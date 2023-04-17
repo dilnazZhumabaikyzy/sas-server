@@ -11,6 +11,10 @@ SpecialReasons.init(
       autoIncrement: true,
       primaryKey: true,
     },
+    reasonType:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     studentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -21,17 +25,17 @@ SpecialReasons.init(
     },
     document: {
       type: DataTypes.BLOB,
-      allowNull: false,
+      allowNull: true,
     },
     comment: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    from_date: {
+    fromDate: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    to_date: {
+    toDate: {
       type: DataTypes.DATE,
       allowNull: false,
     },

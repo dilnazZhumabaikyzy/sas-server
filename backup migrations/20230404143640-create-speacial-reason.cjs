@@ -23,11 +23,11 @@ const migration = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      from_date: {
+      fromDate: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      to_date: {
+      toDate: {
         type: Sequelize.DATE,
         allowNull: false,
       }

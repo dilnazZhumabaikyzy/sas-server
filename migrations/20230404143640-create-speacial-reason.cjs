@@ -7,6 +7,10 @@ const migration = {
         autoIncrement: true,
         primaryKey: true,
       },
+      reasonType:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       studentId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -17,17 +21,17 @@ const migration = {
       },
       document: {
         type: Sequelize.BLOB,
-        allowNull: false,
+        allowNull: true,
       },
       comment: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      from_date: {
+      fromDate: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      to_date: {
+      toDate: {
         type: Sequelize.DATE,
         allowNull: false,
       }

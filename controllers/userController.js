@@ -69,6 +69,15 @@ class userController{
             next(error);
         }
     }
+    async searchStudent(req,res, next){
+        try {
+            const {key} = req.body;
+            const result = await userService.searchStudent(key);
+            return res.json(result);
+        } catch (error) {
+            next(error);
+        }
+    }
 
 }
 
