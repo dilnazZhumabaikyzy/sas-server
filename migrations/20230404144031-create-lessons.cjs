@@ -24,14 +24,7 @@ const migration = {
               key: "courseId",
             },
           },
-          teacherId: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {
-              model: "teachers",
-              key: "teacherId",
-            },
-          },
+          
           time: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -45,6 +38,10 @@ const migration = {
             type: Sequelize.STRING,
             allowNull: false,
           },    
+          teacherId: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+          }
     });
   },
 

@@ -2,7 +2,6 @@ import { Model, DataTypes } from "sequelize";
 import {sequelize} from './db.js';
 import Types from "./type.js";
 import Courses from "./course.js";
-import Teachers from "./teacher.js";
 
 class Lessons extends Model {}
 Lessons.init(
@@ -29,14 +28,10 @@ Lessons.init(
         key: "courseId",
       },
     },
-    teacherId: {
+    teacherId:{
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Teachers,
-        key: "teacherId",
-      },
-    },
+      allowNull:false
+    },    
     time: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -61,4 +56,4 @@ Lessons.init(
 Lessons.belongsTo(Types, { foreignKey: "lessonType" });
 Types.hasMany(Lessons, { foreignKey: "lessonType" });
 
-export default Lessons;
+export default Lessons

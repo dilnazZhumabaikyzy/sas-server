@@ -31,7 +31,7 @@ module.exports = {
        },
        {
         lessonType: 'Lecture',
-        teacherId:200107112,
+       teacherId:200107112,
         time:'Monday 16:00',
         group: '01N',
         room:'G217',
@@ -40,7 +40,7 @@ module.exports = {
        //Practices
        {
         lessonType: 'Practice',
-        teacherId:200107112,
+       teacherId:200107112,
         time:'Monday 17:00',
         group: '03P',
         room:'G202',
@@ -48,7 +48,7 @@ module.exports = {
        },
        {
         lessonType: 'Practice',
-        teacherId:200107111,
+       teacherId:200107111,
         time:'Wednesday 12:00',
         group: '05P',
         room:'H101',
@@ -56,7 +56,7 @@ module.exports = {
        }  ,
        {
         lessonType: 'Practice',
-        teacherId:200107111,
+       teacherId:200107111,
         time:'Wednesday 13:00',
         group: '05P',
         room:'H101',

@@ -15,7 +15,7 @@ Teachers.init(
         key: "userId",
       },
     },
-    lessonId: {
+    lessonIds: {
       type: DataTypes.ARRAY(DataTypes.INTEGER),
       allowNull: true
     },
@@ -28,8 +28,7 @@ Teachers.init(
   }
 );
 
-
 Users.hasOne(Teachers, { foreignKey: 'teacherId' });
 Teachers.belongsTo(Users, { foreignKey: 'teacherId' });
 
-export default Teachers;
+export default Teachers
