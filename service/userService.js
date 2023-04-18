@@ -9,6 +9,7 @@ import StudentDto from '../dtos/student-dto.js';
 import Students from '../models/student.js';
 import { Sequelize } from 'sequelize';
 import Teachers from '../models/teacher.js';
+import Enrollments from '../models/enrollment.js';
 
 
 class UserService {
@@ -157,6 +158,15 @@ class UserService {
           });  
         return teachers;
       }   
+
+      async lessons(studentId){
+        const lessons = await Enrollments.findAll({
+            where: { studentId: studentId },            
+            attributes: ['studentId', 'lessonId']
+          });
+          console.log(lessons)
+          return lessons;
+    }    
 }
 
 export default new UserService();

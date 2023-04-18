@@ -1,5 +1,6 @@
 import attendanceService from "../service/attendanceService.js";
 import specialReasonService from "../service/specialReasonService.js";
+import userService from "../service/userService.js";
 
 class studentController{    
     async registrate(req,res, next){
@@ -31,6 +32,17 @@ class studentController{
             const authorizedUsers = await specialReasonService.getAuthorized(studentId);      
             console.log(authorizedUsers)  
             return res.json(authorizedUsers);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async lessons(req,res, next){
+        try {
+            const {studentId} = req.body;
+            console.log("lessons")
+            const lessons = await userService.lessons(studentId);      
+            console.log(lessons)  
+            return res.json(lessons);
         } catch (error) {
             next(error);
         }
