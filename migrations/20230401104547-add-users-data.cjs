@@ -60,6 +60,13 @@ module.exports = {
           roleId: "student",
         },
         {
+          userId: 200107118,
+          firstName: "Satzhan",
+          lastName: "Kadyr",
+          password: "$2a$10$oOcU7x4wMKZgceHAzkpOfutUmn1iEvOr07HQAJIneqRDmLsMYaS1.",
+          roleId: "student",
+        },
+        {
           userId: 200107022,
           firstName: "Rauan",
           lastName: "Orynbasar",

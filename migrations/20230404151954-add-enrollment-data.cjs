@@ -5,27 +5,27 @@ module.exports = {
       [
         {
           studentId: '200107113',
-          lessonId:'1'
+          lessonId: '1'
         },
         {
           studentId: '200107113',
-          lessonId:'2'
+          lessonId: '2'
         },
         {
           studentId: '200107119',
-          lessonId:'4'
+          lessonId: '4'
         },
         {
           studentId: '200107119',
-          lessonId:'6'
+          lessonId: '6'
         },
         {
           studentId: '200107117',
-          lessonId:'1'
-        },     
+          lessonId: '1'
+        },
         {
           studentId: '200107118',
-          lessonId:'1'
+          lessonId: '1'
         },
       ],
       {}

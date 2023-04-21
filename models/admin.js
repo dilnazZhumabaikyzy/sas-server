@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from './db';
+import { sequelize } from './db.js';
 import Users from "./users.js";
 
-class Admins extends Model {}
+class Admins extends Model { }
 Admins.init(
   {
     adminId: {
