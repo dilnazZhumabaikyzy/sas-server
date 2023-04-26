@@ -13,6 +13,7 @@ import Enrollments from '../models/enrollment.js';
 import TeacherDto from '../dtos/teacher-dto.js';
 import Admins from "../models/admin.js"
 import AdminDto from '../dtos/admin-dto.js';
+import SpecialReasons from "../models/specialReason.js";
 
 class UserService {
   async registrationStudent(userId, password, firstName, lastName, major) {
@@ -59,7 +60,7 @@ class UserService {
     console.log("user findOne()" + user)
     const isPassEquals = await bcrypt.compare(password, user.password);
     if (!isPassEquals) {
-      throw ApiError.BadRequest('Wrong password');
+      throw ApiError.BadRequest('Wrong password!');
     }
     console.log("password is correct");
     const userDto = new UserDto(user);
@@ -175,6 +176,11 @@ class UserService {
     });
     console.log(lessons)
     return lessons;
+  }
+
+  async getReasons() {
+    const reasons = await SpecialReasons.findAll()
+    return reasons;
   }
 }
 
