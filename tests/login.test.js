@@ -24,22 +24,24 @@ describe('Login endpoint', () => {
             await axios.post(url, data);
         } catch (error) {
             expect(error.response.status).toBe(400);
-            expect(error.response.data.message).toBe('Wrong password');
+            expect(error.response.data.message).toBe('Wrong password!');
         }
     });
 
     it('should return a bad request status code with \'User with id 200107202 not found!\' message', async () => {
         const url = 'https://sasserver.software/api/login';
+        const userId = '200107202';
+        const password = 'mystrong1';
         const data = {
-            userId: '200107202',
-            password: 'mystrong1'
+            userId: userId,
+            password: password
         };
 
         try {
             await axios.post(url, data);
         } catch (error) {
             expect(error.response.status).toBe(400);
-            expect(error.response.data.message).toBe('User with id 200107202 not found!');
+            expect(error.response.data.message).toBe('User with id ' + userId + ' not found!');
         }
     });
 });

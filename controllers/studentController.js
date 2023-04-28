@@ -1,6 +1,7 @@
 import attendanceService from "../service/attendanceService.js";
 import specialReasonService from "../service/specialReasonService.js";
 import userService from "../service/userService.js";
+import { Buffer } from 'buffer';
 
 class studentController {
     async registrate(req, res, next) {
@@ -17,6 +18,7 @@ class studentController {
     async recordReason(req, res, next) {
         try {
             const { file, studentId, fromDate, toDate, type, comment } = req.body;
+            console.log("REASON BACK: " + JSON.stringify(req.body))
             const recordStatus = await specialReasonService.recordReason(file, studentId, fromDate, toDate, comment, type);
             return res.json(recordStatus);
         } catch (error) {
@@ -38,6 +40,7 @@ class studentController {
         try {
             const { studentId } = req.body;
             console.log("lessons")
+            console.log("req body:" + req.body)
             const lessons = await userService.lessons(studentId);
             console.log(lessons)
             return res.json(lessons);

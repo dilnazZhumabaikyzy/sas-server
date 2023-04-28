@@ -7,7 +7,7 @@ const migration = {
         autoIncrement: true,
         primaryKey: true,
       },
-      reasonType:{
+      reasonType: {
         type: Sequelize.STRING,
         allowNull: false
       },

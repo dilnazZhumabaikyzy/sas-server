@@ -14,6 +14,7 @@ import TeacherDto from '../dtos/teacher-dto.js';
 import Admins from "../models/admin.js"
 import AdminDto from '../dtos/admin-dto.js';
 import SpecialReasons from "../models/specialReason.js";
+import Lessons from '../models/lessons.js';
 
 class UserService {
   async registrationStudent(userId, password, firstName, lastName, major) {
@@ -170,11 +171,7 @@ class UserService {
   }
 
   async lessons(studentId) {
-    const lessons = await Enrollments.findAll({
-      where: { studentId: studentId },
-      attributes: ['studentId', 'lessonId']
-    });
-    console.log(lessons)
+    const lessons = await Lessons.findAll({});
     return lessons;
   }
 

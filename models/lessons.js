@@ -1,11 +1,15 @@
 import { Model, DataTypes } from "sequelize";
-import {sequelize} from './db.js';
+import { sequelize } from './db.js';
 import Types from "./type.js";
 import Courses from "./course.js";
 
-class Lessons extends Model {}
+class Lessons extends Model { }
 Lessons.init(
   {
+    lessonName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     lessonId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,10 +32,10 @@ Lessons.init(
         key: "courseId",
       },
     },
-    teacherId:{
+    teacherId: {
       type: DataTypes.INTEGER,
-      allowNull:false
-    },    
+      allowNull: false
+    },
     time: {
       type: DataTypes.STRING,
       allowNull: false,

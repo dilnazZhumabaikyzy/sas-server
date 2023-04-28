@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
-import {sequelize} from './db.js';
+import { sequelize } from './db.js';
 import Students from "./student.js";
 
-class SpecialReasons extends Model {}
+class SpecialReasons extends Model { }
 SpecialReasons.init(
   {
     reasonId: {
@@ -11,7 +11,7 @@ SpecialReasons.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    reasonType:{
+    reasonType: {
       type: DataTypes.STRING,
       allowNull: false
     },
