@@ -8,7 +8,7 @@ Lessons.init(
   {
     lessonName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     lessonId: {
       type: DataTypes.INTEGER,

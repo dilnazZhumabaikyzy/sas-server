@@ -5,7 +5,7 @@ const migration = {
 
       lessonName: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       lessonId: {
         type: Sequelize.INTEGER,
