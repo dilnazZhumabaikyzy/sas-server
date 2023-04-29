@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
-import {sequelize} from './db.js'; // Import the Sequelize instance created earlier
+import { sequelize } from './db.js'; // Import the Sequelize instance created earlier
 import bcrypt from 'bcryptjs';
 import Roles from './role.js';
 
-class Users extends Model {}
+class Users extends Model { }
 Users.init({
   // Define the columns of the User table
   userId: {
@@ -29,10 +29,10 @@ Users.init({
   },
   roleId: {
     type: DataTypes.STRING,
-    references: {
-      model: Roles, // reference the Role model
-      key: 'value' // reference the value column in the Role table
-    }
+    // references: {
+    //   model: Roles, // reference the Role model
+    //   key: 'value' // reference the value column in the Role table
+    // }
   }
 }, {
   sequelize, // Pass the Sequelize instance
@@ -41,7 +41,7 @@ Users.init({
   underscored: false, // Set underscored option to false
 });
 
-Users.belongsTo(Roles, { foreignKey: 'roleId' });
-Roles.hasMany(Users, { foreignKey: 'roleId' });
+// Users.belongsTo(Roles, { foreignKey: 'roleId' });
+// Roles.hasMany(Users, { foreignKey: 'roleId' });
 
 export default Users;
