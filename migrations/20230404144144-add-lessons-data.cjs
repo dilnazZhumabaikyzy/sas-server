@@ -65,6 +65,15 @@ module.exports = {
           group: '05P',
           room: 'H101',
           courseId: 'CSS216'
+        },
+        {
+          lessonName: "Physical Education",
+          lessonType: 'Practice',
+          teacherId: 200107111,
+          time: "Thursday 15:00",
+          group: '04P',
+          room: 'Sport Hall',
+          courseId: 'MDE145'
         }
       ],
       {}
