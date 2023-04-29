@@ -24,10 +24,10 @@ const migration = {
       },
       roleId: {
         type: Sequelize.STRING,
-        references: {
-          model: 'roles', // reference the Role model
-          key: 'value' // reference the value column in the Role table
-        }
+        // references: {
+        //   model: 'roles', // reference the Role model
+        //   key: 'value' // reference the value column in the Role table
+        // }
       }
     });
   },

@@ -3,8 +3,6 @@ module.exports = {
     return queryInterface.bulkInsert(
       "lessons",
       [
-        //total count: 7
-        //Lectures
         {
           lessonName: "Computer Vision",
           lessonType: 'Lecture',
@@ -41,7 +39,6 @@ module.exports = {
           room: 'G217',
           courseId: 'MDE154'
         },
-        //Practices
         {
           lessonName: "Computer Vision",
           lessonType: 'Practice',
