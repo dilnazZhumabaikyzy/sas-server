@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
-import {sequelize} from './db.js'; // Import the Sequelize instance created earlier
+import { sequelize } from './db.js'; // Import the Sequelize instance created earlier
 import Lessons from './lessons.js';
 import Students from './student.js';
 
-class Enrollments extends Model {}
+class Enrollments extends Model { }
 Enrollments.init({
   // Define the columns of the User table
   enrollmentId: {
@@ -37,8 +37,8 @@ Enrollments.init({
   underscored: false,
 });
 
-Enrollments.belongsTo(Lessons, { foreignKey: "lessonId" });
-Lessons.hasMany(Enrollments, { foreignKey: "lessonId" });
+// Enrollments.belongsTo(Lessons, { foreignKey: "lessonId" });
+// Lessons.hasMany(Enrollments, { foreignKey: "lessonId" });
 
 Enrollments.belongsTo(Students, { foreignKey: "studentId" });
 Students.hasMany(Enrollments, { foreignKey: "studentId" });
