@@ -43,6 +43,10 @@ module.exports = {
           courseId: 'MAT151',
           name: 'Linear Algebra',
         },
+        {
+          courseId: 'MDE145',
+          name: "Physical Education"
+        }
       ],
       {}
     );
