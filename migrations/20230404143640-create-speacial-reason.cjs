@@ -23,6 +23,10 @@ const migration = {
         type: Sequelize.BLOB,
         allowNull: true,
       },
+      fileName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       comment: {
         type: Sequelize.STRING,
         allowNull: true,

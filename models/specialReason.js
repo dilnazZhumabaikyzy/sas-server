@@ -25,7 +25,11 @@ SpecialReasons.init(
     },
     document: {
       type: DataTypes.BLOB,
-      allowNull: true,
+      allowNull: false,
+    },
+    fileName: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     comment: {
       type: DataTypes.STRING,
