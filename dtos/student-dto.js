@@ -12,6 +12,6 @@ export default class StudentDto {
         this.firstName = user_model.firstName;
         this.major = student_model.major;
         this.authorizedId = student_model.authorizedId;
-        this.role = 'student'
+        this.role = 'Student'
     }
 }

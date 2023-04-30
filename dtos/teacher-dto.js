@@ -10,6 +10,6 @@ export default class TeacherDto {
         this.lastName = user_model.lastName;
         this.firstName = user_model.firstName;
         this.lessonIds = teacher_model.lessonIds
-        this.role = 'teacher'
+        this.role = 'Teacher'
     }
 }
