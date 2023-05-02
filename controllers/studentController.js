@@ -17,9 +17,8 @@ class studentController {
     }
     async recordReason(req, res, next) {
         try {
-            const { file, studentId, fromDate, toDate, type, comment, fileName } = req.body;
-            console.log("REASON BACK: " + JSON.stringify(req.body))
-            const recordStatus = await specialReasonService.recordReason(file, studentId, fromDate, toDate, comment, type, fileName);
+            const { file, studentId, fromDate, toDate, type, comment, fileName, firstName, lastName } = req.body;
+            const recordStatus = await specialReasonService.recordReason(file, studentId, fromDate, toDate, comment, type, fileName, firstName, lastName);
             return res.json(recordStatus);
         } catch (error) {
             next(error);

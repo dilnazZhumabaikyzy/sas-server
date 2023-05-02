@@ -38,6 +38,14 @@ const migration = {
       toDate: {
         type: Sequelize.DATE,
         allowNull: false,
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     });
   },

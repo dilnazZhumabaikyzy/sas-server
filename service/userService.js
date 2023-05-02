@@ -177,14 +177,10 @@ class UserService {
 
   async getReasons() {
     const reasons = await SpecialReasons.findAll({
-      attributes: ['studentId', 'reasonType', 'document', 'fileName'],
-      include: [
-        {
-          model: Users,
-          attributes: ['firstName', 'lastName'],
-          where: { id: Sequelize.col('SpecialReasons.studentId') }
-        }
-      ]
+      include: {
+        model: Users,
+        attributes: ['firstName', 'lastName']
+      }
     });
     return reasons;
   }

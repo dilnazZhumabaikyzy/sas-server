@@ -1,6 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from './db.js';
 import Students from "./student.js";
+import Users from "./users.js";
 
 class SpecialReasons extends Model { }
 SpecialReasons.init(
@@ -43,6 +44,14 @@ SpecialReasons.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     sequelize,
@@ -51,4 +60,6 @@ SpecialReasons.init(
     underscored: false,
   }
 );
+
+SpecialReasons.belongsTo(Users, { foreignKey: 'studentId' });
 export default SpecialReasons;

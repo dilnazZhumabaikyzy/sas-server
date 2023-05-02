@@ -8,7 +8,7 @@ import fs from 'fs';
 
 
 class SpecialReasonService {
-  async recordReason(file, studentId, fromDate, toDate, comment, type, fileName) {
+  async recordReason(file, studentId, fromDate, toDate, comment, type, fileName, firstName, lastName) {
     const record = await SpecialReasons.create({
       studentId: studentId,
       document: file,
@@ -16,7 +16,9 @@ class SpecialReasonService {
       toDate: toDate,
       reasonType: type,
       comment: comment,
-      fileName: fileName
+      fileName: fileName,
+      firstName: firstName,
+      lastName: lastName
     });
     return record;
   }
