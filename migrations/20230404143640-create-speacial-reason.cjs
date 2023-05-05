@@ -7,7 +7,7 @@ const migration = {
         autoIncrement: true,
         primaryKey: true,
       },
-      reasonType:{
+      reasonType: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -23,6 +23,10 @@ const migration = {
         type: Sequelize.BLOB,
         allowNull: true,
       },
+      fileName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       comment: {
         type: Sequelize.STRING,
         allowNull: true,
@@ -34,6 +38,18 @@ const migration = {
       toDate: {
         type: Sequelize.DATE,
         allowNull: false,
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     });
   },

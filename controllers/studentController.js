@@ -1,48 +1,65 @@
+import Lessons from "../models/lessons.js";
 import attendanceService from "../service/attendanceService.js";
 import specialReasonService from "../service/specialReasonService.js";
 import userService from "../service/userService.js";
+import { Buffer } from 'buffer';
 
-class studentController{    
-    async registrate(req,res, next){
+class studentController {
+    async registrate(req, res, next) {
         try {
-            const {lessonId, userId} = req.body;
+            const { lessonId, userId } = req.body;
             console.log("attendancecontroller")
-            const attendanceStatus = await attendanceService.registrate(lessonId, userId);      
-            console.log(attendanceStatus)  
+            const attendanceStatus = await attendanceService.registrate(lessonId, userId);
+            console.log(attendanceStatus)
             return res.json(attendanceStatus);
         } catch (error) {
             next(error);
         }
     }
-    async recordReason(req,res, next){
+    async recordReason(req, res, next) {
         try {
-            const {fileData, studentId, fromDate, toDate, type, comment} = req.body;
-            console.log("recordReason")
-            const recordStatus = await specialReasonService.recordReason(fileData, studentId, fromDate, toDate,comment, type);      
-            console.log(recordStatus)  
+            const { file, studentId, fromDate, toDate, type, comment, fileName, firstName, lastName } = req.body;
+            const recordStatus = await specialReasonService.recordReason(file, studentId, fromDate, toDate, comment, type, fileName, firstName, lastName);
             return res.json(recordStatus);
         } catch (error) {
             next(error);
         }
     }
-    async getAuthorized(req,res, next){
+    async getAuthorized(req, res, next) {
         try {
-            const {studentId} = req.body;
+            const { studentId } = req.body;
             console.log("getAuthorized")
-            const authorizedUsers = await specialReasonService.getAuthorized(studentId);      
-            console.log(authorizedUsers)  
+            const authorizedUsers = await specialReasonService.getAuthorized(studentId);
+            console.log(authorizedUsers)
             return res.json(authorizedUsers);
         } catch (error) {
             next(error);
         }
     }
-    async lessons(req,res, next){
+    async lessons(req, res, next) {
         try {
-            const {studentId} = req.body;
+            const { studentId } = req.body;
             console.log("lessons")
-            const lessons = await userService.lessons(studentId);      
-            console.log(lessons)  
+            console.log("req body:" + req.body)
+            const lessons = await userService.lessons(studentId);
+            console.log(lessons)
             return res.json(lessons);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async lessonsCurrent(req, res, next) {
+        const date = new Date();
+        const day = date.getDay();
+
+        try {
+            const lessons = await Lessons.findAll({
+                where: {
+                    dayOfWeek: day,
+                },
+            });
+            res.json(lessons);
         } catch (error) {
             next(error);
         }

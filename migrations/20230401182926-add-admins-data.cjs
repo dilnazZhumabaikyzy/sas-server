@@ -4,12 +4,12 @@ module.exports = {
       "admins",
       [
         {
-          adminId: 200107110,
+          adminId: 200107032,
         }
       ],
       {}
     );
   },
 
-  async down(queryInterface, Sequelize) {},
+  async down(queryInterface, Sequelize) { },
 };

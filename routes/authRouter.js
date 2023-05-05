@@ -4,26 +4,30 @@ import roleMiddleware from "../middlewares/roleMiddleware.js";
 import { check } from "express-validator";
 import userController from "../controllers/userController.js";
 import studentController from "../controllers/studentController.js";
+import adminController from "../controllers/adminController.js"
 
 const router = new Router();
 
 router.post('/registration',
-                            [check('password',"Password length should be between 6 and 16").isLength({min: 6, max: 16})],
-            userController.registration);
+    [check('password', "Password length should be between 6 and 16").isLength({ min: 6, max: 16 })],
+    userController.registration);
 router.post('/login', userController.login);
 router.post('/logout', userController.logout);
 router.get('/refresh', userController.refresh);
-router.get('/testAuth',authMiddleware, userController.getUsers);
-router.get('/testRole',authMiddleware, roleMiddleware(["admin"]), userController.getUsers);
+router.get('/testAuth', authMiddleware, userController.getUsers);
+router.get('/testRole', authMiddleware, roleMiddleware(["admin"]), userController.getUsers);
 
-router.get('/test', userController.getUsers );
+router.get('/test', userController.getUsers);
 //Special Reason Routes
 
 router.post('/recordSpecialReason', studentController.recordReason);
 router.post('/getAuthorizedUsers', studentController.getAuthorized);
 
+router.get('/reasons', adminController.getReasons)
 //Student Routes
 router.post('/registrate', studentController.registrate);
+
+router.put('/reasons/:reasonId', adminController.updateReason)
 
 //teacher Routes
 
@@ -32,5 +36,6 @@ router.post('/searchStudents', userController.searchStudent);
 router.post('/searchStudents', userController.searchTeacher);
 
 router.post('/lessons', studentController.lessons);
+router.get('/lessonsCurrent', studentController.lessonsCurrent)
 
-export  {router};
+export { router };
