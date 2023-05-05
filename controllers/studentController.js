@@ -1,3 +1,4 @@
+import Lessons from "../models/lessons.js";
 import attendanceService from "../service/attendanceService.js";
 import specialReasonService from "../service/specialReasonService.js";
 import userService from "../service/userService.js";
@@ -43,6 +44,22 @@ class studentController {
             const lessons = await userService.lessons(studentId);
             console.log(lessons)
             return res.json(lessons);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async lessonsCurrent(req, res, next) {
+        const date = new Date();
+        const day = date.getDay();
+
+        try {
+            const lessons = await Lessons.findAll({
+                where: {
+                    dayOfWeek: day,
+                },
+            });
+            res.json(lessons);
         } catch (error) {
             next(error);
         }

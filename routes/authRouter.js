@@ -36,5 +36,6 @@ router.post('/searchStudents', userController.searchStudent);
 router.post('/searchStudents', userController.searchTeacher);
 
 router.post('/lessons', studentController.lessons);
+router.get('/lessonsCurrent', studentController.lessonsCurrent)
 
 export { router };
