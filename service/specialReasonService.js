@@ -18,7 +18,8 @@ class SpecialReasonService {
       comment: comment,
       fileName: fileName,
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      status: "REQUESTED"
     });
     return record;
   }

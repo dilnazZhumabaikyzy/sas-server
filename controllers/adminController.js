@@ -11,6 +11,21 @@ class adminController {
             next(error)
         }
     }
+
+    async updateReason(req, res, next) {
+        try {
+            console.log(req.params)
+            const { reasonId } = req.params;
+            const { status } = req.body
+            const updatedReason = await SpecialReasons.update(
+                { status: status },
+                { where: { reasonId: reasonId } }
+            );
+            res.status(200).json(updatedReason);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default new adminController();

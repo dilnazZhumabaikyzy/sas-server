@@ -27,6 +27,8 @@ router.get('/reasons', adminController.getReasons)
 //Student Routes
 router.post('/registrate', studentController.registrate);
 
+router.put('/reasons/:reasonId', adminController.updateReason)
+
 //teacher Routes
 
 //user Routes
