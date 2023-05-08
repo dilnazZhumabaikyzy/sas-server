@@ -36,7 +36,6 @@ router.put('/reasons/:reasonId', adminController.updateReason)
 router.post('/searchStudents', userController.searchStudent);
 router.post('/searchStudents', userController.searchTeacher);
 
-router.post('/lessons', studentController.lessons);
-router.get('/lessonsCurrent', studentController.lessonsCurrent)
+router.get('/lessons', studentController.lessons);
 
 export { router };

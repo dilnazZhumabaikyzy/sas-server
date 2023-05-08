@@ -170,26 +170,10 @@ class UserService {
     return teachers;
   }
 
-  async lessons(studentId){
-    const lessonIds = await Enrollments.findAll({
-        where: { studentId: studentId },            
-        attributes: ['studentId', 'lessonId']
-      });
-      console.log(lessonIds)
-      const lessons = await Promise.all(lessonIds.map(async (enrollment) => {
-        const lessonId = enrollment.lessonId;
-        const lesson = await Lessons.findOne({ where: { lessonId: lessonId } });
-        return lesson;
-      }));
-    
-      return lessons;
-} 
-async lessonsCurrent(lessons, day){
-    const todaysLessons = {}
-    
+  async lessons() {
+    return Lessons.findAll();
+  }
 
-    return todaysLessons;
-} 
   async getReasons() {
     const reasons = await SpecialReasons.findAll({
       include: {

@@ -16,10 +16,10 @@ class studentController {
             next(error);
         }
     }
-    
+
     async getAttendanceStatus(req, res, next) {
         try {
-            const {lessonId, userId} = req.body;
+            const { lessonId, userId } = req.body;
             console.log("attendancecontroller")
             const attendanceStatus = await attendanceService.getAttendanceStatus(lessonId, userId);
             console.log(attendanceStatus)
@@ -59,15 +59,6 @@ class studentController {
         } catch (error) {
             next(error);
         }
-    }
-
-    async lessonsCurrent(req, res, next) {
-        const { studentId } = req.body;
-        const date = new Date();
-        const day = date.getDay();
-        const lessons = await userService.lessons(studentId);
-        const todaysLessons = await userService.lessonsCurrent(lessons, day);
-        return res.json(lessons);
     }
 }
 export default new studentController();
