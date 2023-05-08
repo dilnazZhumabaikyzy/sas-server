@@ -4,49 +4,45 @@ module.exports = {
       "courses",
       [
         {
-          courseId: 'CSS216',
-          name: 'Mobile Development',
+          courseId: 'CSS 309',
+          name: 'Low-level Architecture',
         },
         {
-          courseId: 'MDE154',
-          name: 'Science of Psychology',
-        },
-        {
-          courseId: 'MDE153',
-          name: 'Cultural Studies',
-        },
-        {
-          courseId: 'CSS358',
-          name: 'Design Patterns',
-        },
-        {
-          courseId: 'CSS342',
-          name: 'Software engineering',
-        },
-        {
-          courseId: 'CSS440',
-          name: 'Distributed Computing',
-        },
-        {
-          courseId: 'INF376	',
+          courseId: 'INF 376',
           name: 'Natural Language Processing',
         },
         {
-          courseId: 'CSS105',
-          name: 'Fundamentals of Programming',
+          courseId: 'CSS 342',
+          name: 'Software Engineering',
         },
         {
-          courseId: 'INF106',
-          name: 'Information and Communications Technologies',
+          courseId: 'CSS 306',
+          name: 'Cyber Security',
         },
         {
-          courseId: 'MAT151',
-          name: 'Linear Algebra',
+          courseId: 'INF 261',
+          name: 'Game Physics',
         },
         {
-          courseId: 'MDE145',
-          name: "Physical Education"
-        }
+          courseId: 'CSS 440',
+          name: 'Distributed Computing',
+        },
+        {
+          courseId: 'MDE 154',
+          name: 'Psychology',
+        },
+        {
+          courseId: 'MDE 153',
+          name: 'Cultural Studies',
+        },
+        {
+          courseId: 'INF 324',
+          name: 'Computer Vision',
+        },
+        {
+          courseId: 'CSS 345',
+          name: 'Advanced computer architecture',
+        },
       ],
       {}
     );
