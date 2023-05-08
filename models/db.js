@@ -12,10 +12,6 @@ async function initialize() {
   try {
     await sequelize.authenticate();
     await sequelize.sync();
-    // sequelize.clearCache();
-    console.log("TEST TEST TEST TEST!!!!!!!!!!!!!!!!!!!!!!!!");
-    // console.log(sequelize);
-    console.log('Database connection successful');
   } catch (error) {
     console.error('Error connecting to database:', error);
   }

@@ -36,10 +36,8 @@ initialize();
 async function run() {
   try {
     app.listen(port, () => {
-      console.log(`App listening on port ${port}`);
     });
   } catch (err) {
-    console.log(err.stack);
   }
 }
 

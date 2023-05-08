@@ -5,7 +5,6 @@ class adminController {
     async getReasons(req, res, next) {
         try {
             const reasons = await userService.getReasons();
-            console.log(reasons)
             return res.json(reasons);
         } catch (error) {
             next(error)
@@ -14,7 +13,6 @@ class adminController {
 
     async updateReason(req, res, next) {
         try {
-            console.log(req.params)
             const { reasonId } = req.params;
             const { status } = req.body
             const updatedReason = await SpecialReasons.update(

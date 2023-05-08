@@ -32,9 +32,7 @@ class SpecialReasonService {
       },
       attributes: ['studentId', 'authorizedId']
     });
-    console.log(students)
     const studentData = students.map(student => {
-      console.log('student:', student.toJSON());
       const { studentId, authorizedId } = student.toJSON();
       const { firstName, lastName } = student.user.toJSON();
       return { studentId, authorizedId, firstName, lastName };

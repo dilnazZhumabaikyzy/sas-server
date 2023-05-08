@@ -8,9 +8,7 @@ class studentController {
     async registrateAttendance(req, res, next) {
         try {
             const { lessonId, userId } = req.body;
-            console.log("attendancecontroller")
             const attendanceStatus = await attendanceService.registrateAttendance(lessonId, userId);
-            console.log(attendanceStatus)
             return res.json(attendanceStatus);
         } catch (error) {
             next(error);
@@ -20,9 +18,7 @@ class studentController {
     async getAttendanceStatus(req, res, next) {
         try {
             const { lessonId, userId } = req.body;
-            console.log("attendancecontroller")
             const attendanceStatus = await attendanceService.getAttendanceStatus(lessonId, userId);
-            console.log(attendanceStatus)
             return res.json(attendanceStatus);
         } catch (error) {
             next(error);
@@ -40,9 +36,7 @@ class studentController {
     async getAuthorized(req, res, next) {
         try {
             const { studentId } = req.body;
-            console.log("getAuthorized")
             const authorizedUsers = await specialReasonService.getAuthorized(studentId);
-            console.log(authorizedUsers)
             return res.json(authorizedUsers);
         } catch (error) {
             next(error);
