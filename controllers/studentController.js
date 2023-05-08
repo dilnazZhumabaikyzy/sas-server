@@ -50,11 +50,7 @@ class studentController {
     }
     async lessons(req, res, next) {
         try {
-            const { studentId } = req.body;
-            console.log("lessons")
-            console.log("req body:" + req.body)
-            const lessons = await userService.lessons(studentId);
-            console.log(lessons)
+            const lessons = await userService.lessons();
             return res.json(lessons);
         } catch (error) {
             next(error);

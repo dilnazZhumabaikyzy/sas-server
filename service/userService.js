@@ -171,7 +171,8 @@ class UserService {
   }
 
   async lessons() {
-    return Lessons.findAll();
+    const lessons = await Lessons.findAll();
+    return lessons;
   }
 
   async getReasons() {
