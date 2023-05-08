@@ -5,11 +5,23 @@ import userService from "../service/userService.js";
 import { Buffer } from 'buffer';
 
 class studentController {
-    async registrate(req, res, next) {
+    async registrateAttendance(req, res, next) {
         try {
             const { lessonId, userId } = req.body;
             console.log("attendancecontroller")
-            const attendanceStatus = await attendanceService.registrate(lessonId, userId);
+            const attendanceStatus = await attendanceService.registrateAttendance(lessonId, userId);
+            console.log(attendanceStatus)
+            return res.json(attendanceStatus);
+        } catch (error) {
+            next(error);
+        }
+    }
+    
+    async getAttendanceStatus(req, res, next) {
+        try {
+            const {lessonId, userId} = req.body;
+            console.log("attendancecontroller")
+            const attendanceStatus = await attendanceService.getAttendanceStatus(lessonId, userId);
             console.log(attendanceStatus)
             return res.json(attendanceStatus);
         } catch (error) {
@@ -50,19 +62,12 @@ class studentController {
     }
 
     async lessonsCurrent(req, res, next) {
+        const { studentId } = req.body;
         const date = new Date();
         const day = date.getDay();
-
-        try {
-            const lessons = await Lessons.findAll({
-                where: {
-                    dayOfWeek: day,
-                },
-            });
-            res.json(lessons);
-        } catch (error) {
-            next(error);
-        }
+        const lessons = await userService.lessons(studentId);
+        const todaysLessons = await userService.lessonsCurrent(lessons, day);
+        return res.json(lessons);
     }
 }
 export default new studentController();

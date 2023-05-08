@@ -35,7 +35,11 @@ Attendances.init(
       //   model: Lessons,
       //   key: "lessonId",
       // },
-    }
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
 
   },
   {

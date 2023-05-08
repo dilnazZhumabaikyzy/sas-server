@@ -25,7 +25,8 @@ router.post('/getAuthorizedUsers', studentController.getAuthorized);
 
 router.get('/reasons', adminController.getReasons)
 //Student Routes
-router.post('/registrate', studentController.registrate);
+router.post('/registrateAttendance', studentController.registrateAttendance);
+router.post('/getAttendance', studentController.getAttendanceStatus);
 
 router.put('/reasons/:reasonId', adminController.updateReason)
 

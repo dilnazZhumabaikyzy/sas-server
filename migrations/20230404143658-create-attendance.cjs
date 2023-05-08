@@ -31,6 +31,10 @@ const migration = {
         //   model: "students",
         //   key: "studentId",
         // },
+      },
+      status:{
+        type: Sequelize.STRING,
+        allowNull: true
       }
     });
   },
