@@ -1,14 +1,10 @@
 import ApiError from "../exeptions/api-error.js";
 import Attendances from "../models/attendance.js";
 import Enrollments from "../models/enrollment.js";
-import { Sequelize } from 'sequelize';
+import { Op } from 'sequelize';
 
 class AttendanceService {
     async registrateAttendance(lessonId, userId) {
-        const enrollment = await Enrollments.findOne({ where: { lessonId: lessonId, studentId: userId } })
-        if (!enrollment) {
-            throw ApiError.UnenrolledLesson()
-        }
         const time = new Date()
         const attendanceLast = await Attendances.findOne({ where: { lessonId: lessonId, studentId: userId } })
         if (attendanceLast) {
@@ -40,7 +36,7 @@ class AttendanceService {
             studentId: userId,
             entryTime: time.toString(),
             lessonId: lessonId,
-            status: "In class"
+            status: "In Class"
         });
         return attendance;
     }
@@ -48,7 +44,6 @@ class AttendanceService {
         const today = new Date();
         const attendance = await Attendances.findOne({
             where: {
-                lessonId: lessonId,
                 studentId: userId,
                 entryTime: {
                     [Sequelize.Op.gte]: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
@@ -56,7 +51,40 @@ class AttendanceService {
                 },
             },
         });
-        return "attendance";
+        return attendance;
+    }
+
+    async getTodayAttendances(userId) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const attendances = await Attendances.findAll({
+            where: {
+                entryTime: {
+                    [Op.gte]: today,
+                },
+                studentId: userId
+            },
+        });
+        return attendances;
+    }
+
+    async updateAttendances(userId) {
+        const todayAttendances = await getTodayAttendances(userId);
+        const currentTime = new Date();
+        console.log("we are in update attendances")
+        console.log(todayAttendances)
+        for (let i = 0; i < todayAttendances.length; i++) {
+            const attendance = todayAttendances[i];
+            const entryTime = new Date(attendance.entryTime);
+            const timeDiffInSeconds = Math.floor((currentTime - entryTime) / 1000);
+            console.log(timeDiffInSeconds)
+            if (timeDiffInSeconds >= 10 && attendance.status !== "Exit") {
+                await Attendances.update(
+                    { status: "Exit" },
+                    { where: { attendanceId: attendance.attendanceId } }
+                );
+            }
+        }
     }
 }
 

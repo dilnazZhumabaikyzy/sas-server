@@ -97,7 +97,7 @@ module.exports = {
           lessonName: "Game Physics",
           lessonType: 'Practice',
           teacherId: 200107111,
-          time: 'Wed 09:00',
+          time: 'Wed 13:30',
           group: '02N',
           room: 'F201',
           courseId: 'INF 261'
@@ -106,7 +106,7 @@ module.exports = {
           lessonName: "Cultural Studies",
           lessonType: 'Practice',
           teacherId: 200107111,
-          time: 'Wed 11:00',
+          time: 'Wed 14:00',
           group: '11N',
           room: 'C103',
           courseId: 'MDE 153'
@@ -115,7 +115,7 @@ module.exports = {
           lessonName: "Advanced computer architecture",
           lessonType: 'Practice',
           teacherId: 200107111,
-          time: 'Wed 13:00',
+          time: 'Wed 14:30',
           group: '04N',
           room: 'F301',
           courseId: 'CSS 345'
@@ -124,7 +124,7 @@ module.exports = {
           lessonName: "Psychology",
           lessonType: 'Practice',
           teacherId: 200107111,
-          time: "Wed 14:00",
+          time: "Wed 15:00",
           group: '12N',
           room: 'D202',
           courseId: 'MDE 154'
@@ -133,7 +133,7 @@ module.exports = {
           lessonName: "Computer Vision",
           lessonType: 'Lecture',
           teacherId: 200107111,
-          time: 'Wed 16:00',
+          time: 'Wed 15:30',
           group: '01N',
           room: 'F203',
           courseId: 'INF 324'

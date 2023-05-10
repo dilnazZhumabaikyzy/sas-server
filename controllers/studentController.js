@@ -17,8 +17,8 @@ class studentController {
 
     async getAttendanceStatus(req, res, next) {
         try {
-            const { lessonId, userId } = req.body;
-            const attendanceStatus = await attendanceService.getAttendanceStatus(lessonId, userId);
+            const { userId } = req.body;
+            const attendanceStatus = await attendanceService.getTodayAttendances(userId);
             return res.json(attendanceStatus);
         } catch (error) {
             next(error);
@@ -46,6 +46,16 @@ class studentController {
         try {
             const lessons = await userService.lessons();
             return res.json(lessons);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async updateAttendance(req, res, next) {
+        try {
+            const { userId } = req.body;
+            const updatedAttendances = await attendanceService.updateAttendances(userId);
+            return res.json(updatedAttendances);
         } catch (error) {
             next(error);
         }

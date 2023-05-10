@@ -18,21 +18,18 @@ router.get('/testAuth', authMiddleware, userController.getUsers);
 router.get('/testRole', authMiddleware, roleMiddleware(["admin"]), userController.getUsers);
 
 router.get('/test', userController.getUsers);
-//Special Reason Routes
 
 router.post('/recordSpecialReason', studentController.recordReason);
 router.post('/getAuthorizedUsers', studentController.getAuthorized);
 
 router.get('/reasons', adminController.getReasons)
-//Student Routes
+
 router.post('/registrateAttendance', studentController.registrateAttendance);
 router.post('/getAttendance', studentController.getAttendanceStatus);
+router.post('/updateAttendance', studentController.updateAttendance);
 
 router.put('/reasons/:reasonId', adminController.updateReason)
 
-//teacher Routes
-
-//user Routes
 router.post('/searchStudents', userController.searchStudent);
 router.post('/searchStudents', userController.searchTeacher);
 
